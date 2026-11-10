@@ -60,8 +60,9 @@ const EventsPage = () => (
             const pillar = PILLARS[ev.pillar];
             return (
               <Reveal key={ev.id}>
-                <div
-                  className="bg-white border border-[#5F6773]/20 shadow-sm p-6 rounded-sm h-full border-t-4 flex flex-col"
+                <Link
+                  to={`/events/${ev.id}`}
+                  className="block bg-white border border-[#5F6773]/20 shadow-sm p-6 rounded-sm h-full border-t-4 flex flex-col transition-transform duration-300 hover:-translate-y-1"
                   style={{ borderTopColor: pillar.color }}
                   data-testid={`events-card-${ev.id}`}
                 >
@@ -73,7 +74,7 @@ const EventsPage = () => (
                       {pillar.name}
                     </span>
                     <span className="text-[10px] font-mono uppercase text-[#80551E] border border-[#C6A66B]/50 px-1.5 py-0.5 rounded">
-                      Coming Soon
+                      {ev.scheduleStatus === "scheduled" ? "Scheduled" : "Dates Pending"}
                     </span>
                   </div>
                   <h3 className="font-display text-lg font-medium text-[#101B2B] mb-1">{ev.title}</h3>
@@ -81,11 +82,24 @@ const EventsPage = () => (
                     {ev.kind}
                   </div>
                   <p className="text-xs text-[#5F6773] leading-relaxed flex-1">{ev.description}</p>
-                </div>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-semibold" style={{ color: pillar.color }}>
+                    View program <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
               </Reveal>
             );
           })}
         </div>
+
+        <Reveal className="mt-10">
+          <Link
+            to="/schedule"
+            data-testid="events-schedule-link"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] font-semibold text-[#101B2B] border-b border-[#C6A66B] pb-1 hover:text-[#80551E] transition-colors"
+          >
+            View the dated schedule <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </Reveal>
 
         <Reveal className="mt-20 mb-12">
           <div className="text-xs uppercase tracking-[0.18em] font-bold text-[#80551E] mb-2">
@@ -126,11 +140,11 @@ const EventsPage = () => (
             </p>
           </div>
           <Link
-            to="/enquiry"
+            to="/schedule"
             data-testid="events-enquiry-link"
             className="inline-flex items-center gap-2 px-6 py-3 bg-[#C6A66B] text-[#101B2B] text-xs font-bold uppercase tracking-[0.12em] rounded-sm hover:bg-[#d8bb83] transition-colors flex-shrink-0"
           >
-            Get Notified <ArrowRight className="w-3.5 h-3.5" />
+            View Schedule <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </Reveal>
       </div>

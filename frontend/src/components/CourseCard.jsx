@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PILLARS, LEVELS } from "@/data/content";
 
 const STATUS_STYLES = {
@@ -19,8 +20,9 @@ export const CourseCard = ({ course, dark = true }) => {
   const footerColor = "text-[#5F6773]";
 
   return (
-    <article
-      className={`p-6 rounded-sm border flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1 ${shell}`}
+    <Link
+      to={`/courses/${course.id}`}
+      className={`block p-6 rounded-sm border transition-transform duration-300 hover:-translate-y-1 ${shell}`}
       data-testid={`course-card-${course.id}`}
     >
       <div>
@@ -53,6 +55,6 @@ export const CourseCard = ({ course, dark = true }) => {
         <span>{level.audience}</span>
         <span>{course.kind === "course" ? "Core Course" : "Experience"}</span>
       </div>
-    </article>
+    </Link>
   );
 };

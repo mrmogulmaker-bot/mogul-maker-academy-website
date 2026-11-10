@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { FounderPhoto } from "@/components/FounderPhoto";
 import { AVATARS, FOUNDER, LEVELS } from "@/data/content";
 
 const BELIEFS = [
@@ -51,21 +52,7 @@ const AboutPage = () => (
     <section className="px-6 lg:px-12 py-20 lg:py-24 border-b border-[#5F6773]/20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         <Reveal className="lg:col-span-5">
-          <div
-            className="relative aspect-[4/5] bg-[#101B2B] rounded-sm overflow-hidden p-8 flex flex-col justify-between"
-            data-testid="about-founder-photo-placeholder"
-          >
-            <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-[#C6A66B]">
-              <span>Founder Portrait</span>
-              <span>Forthcoming</span>
-            </div>
-            <div className="space-y-3">
-              <div className="h-[1px] w-12 bg-[#C6A66B]" />
-              <p className="text-xs text-[#F7F4EE]/80 font-light leading-snug max-w-[240px]">
-                {FOUNDER.photoNote}
-              </p>
-            </div>
-          </div>
+          <FounderPhoto testId="about-founder-photo-placeholder" />
         </Reveal>
         <Reveal className="lg:col-span-7">
           <div className="text-xs uppercase tracking-[0.18em] font-bold text-[#80551E] mb-3">

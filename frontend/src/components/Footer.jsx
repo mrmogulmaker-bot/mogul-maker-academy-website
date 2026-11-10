@@ -47,6 +47,8 @@ export const Footer = () => (
           <li><Link to="/courses" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-courses">Courses & Learning Pathways</Link></li>
           <li><Link to="/methods" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-methods">Proprietary Methods</Link></li>
           <li><Link to="/events" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-events">Events & Media</Link></li>
+          <li><Link to="/schedule" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-schedule">Event Schedule</Link></li>
+          <li><Link to="/journal" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-journal">Insights Journal</Link></li>
           <li><Link to="/about" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-about">Founder & Mission</Link></li>
           <li><Link to="/enquiry" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-enquiry">Enquiries</Link></li>
         </ul>

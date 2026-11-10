@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { to: "/courses", label: "Courses & Pathways" },
   { to: "/methods", label: "Methods" },
   { to: "/events", label: "Events & Media" },
+  { to: "/journal", label: "Journal" },
   { to: "/about", label: "The Academy" },
 ];
 

@@ -29,6 +29,11 @@ INDEXES: dict[str, list[IndexModel]] = {
         IndexModel([("created_at", DESCENDING)], name="created_at_desc"),
         IndexModel([("stage", ASCENDING)], name="stage"),
     ],
+    "rsvps": [
+        IndexModel([("id", ASCENDING)], name="id", unique=True),
+        IndexModel([("created_at", DESCENDING)], name="created_at_desc"),
+        IndexModel([("event_id", ASCENDING)], name="event_id"),
+    ],
     "status_checks": [
         IndexModel([("id", ASCENDING)], name="id", unique=True),
         IndexModel([("timestamp", DESCENDING)], name="timestamp_desc"),
@@ -64,6 +69,18 @@ class Enquiry(BaseModel):
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
+class Rsvp(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: Annotated[str, Field(min_length=1, max_length=120)]
+    email: EmailStr
+    event_id: Annotated[str, Field(min_length=1, max_length=80)]
+    event_title: Annotated[str, Field(min_length=1, max_length=200)]
+    session_label: Optional[str] = Field(default=None, max_length=200)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
 class StatusCheck(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
@@ -94,6 +111,24 @@ async def create_enquiry(input: Enquiry):
 async def list_enquiries(limit: int = Query(50, ge=1, le=200)):
     # Institutional inbox endpoint (no auth in this phase; internal tooling will gate access)
     rows = await db.enquiries.find({}, {"_id": 0}).sort("created_at", -1).limit(limit).to_list(limit)
+    for row in rows:
+        if isinstance(row.get("created_at"), str):
+            row["created_at"] = datetime.fromisoformat(row["created_at"])
+    return rows
+
+
+@api_router.post("/rsvps", response_model=Rsvp, status_code=201)
+async def create_rsvp(input: Rsvp):
+    doc = input.model_dump()
+    doc["created_at"] = doc["created_at"].isoformat()
+    await db.rsvps.insert_one(doc)
+    return input
+
+
+@api_router.get("/rsvps", response_model=List[Rsvp])
+async def list_rsvps(event_id: Optional[str] = Query(None), limit: int = Query(50, ge=1, le=200)):
+    query = {"event_id": event_id} if event_id else {}
+    rows = await db.rsvps.find(query, {"_id": 0}).sort("created_at", -1).limit(limit).to_list(limit)
     for row in rows:
         if isinstance(row.get("created_at"), str):
             row["created_at"] = datetime.fromisoformat(row["created_at"])

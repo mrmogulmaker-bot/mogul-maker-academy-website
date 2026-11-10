@@ -7,6 +7,7 @@ import { CourseCard } from "@/components/CourseCard";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Reveal } from "@/components/Reveal";
 import { PILLARS, METHODS, COURSES, AVATARS, EVENTS, FOUNDER, LEVELS } from "@/data/content";
+import { FounderPhoto } from "@/components/FounderPhoto";
 
 const FEATURED_COURSE_IDS = ["std-1", "prm-6", "vip-7"];
 
@@ -233,21 +234,7 @@ const HomePage = () => {
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <Reveal className="lg:col-span-5">
-            <div
-              className="relative aspect-[4/5] bg-[#101B2B] rounded-sm overflow-hidden p-8 flex flex-col justify-between"
-              data-testid="founder-photo-placeholder"
-            >
-              <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-[#C6A66B]">
-                <span>Founder Portrait</span>
-                <span> forthcoming</span>
-              </div>
-              <div className="space-y-3">
-                <div className="h-[1px] w-12 bg-[#C6A66B]" />
-                <p className="text-xs text-[#F7F4EE]/80 font-light leading-snug max-w-[240px]">
-                  {FOUNDER.photoNote}
-                </p>
-              </div>
-            </div>
+            <FounderPhoto testId="founder-photo-placeholder" />
           </Reveal>
           <Reveal className="lg:col-span-7">
             <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#80551E] mb-3">

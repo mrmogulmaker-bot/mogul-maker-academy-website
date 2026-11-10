@@ -137,6 +137,8 @@ export const LEVELS = {
 };
 
 // kind: "course" | "experience"  |  pillar: make | manage | multiply  |  status: coming-soon | in-development
+// Every course gets a detail page at /courses/:id — sections render when their fields exist,
+// so approved descriptions, lessons, and outcomes can be added per course without redesign.
 export const COURSES = [
   // STANDARD — Core
   { id: "std-1", title: "Start Here: Find Your Mogul Path", level: "standard", kind: "course", pillar: "make", status: "coming-soon", focus: "Orientation, baseline diagnostic, and personal pathway mapping." },
@@ -229,8 +231,22 @@ export const EVENTS = [
     title: "Workshop Wednesday",
     pillar: "manage",
     kind: "Weekly Workshop",
+    format: "Online + In-Person Rotation",
     description:
       "A standing weekly workshop rhythm for members — practical sessions across the 3M Framework, with replays available to Standard and Premium communities.",
+    // When a date/venue is approved, set `date` (ISO, e.g. "2027-02-04T18:00:00") and `location`,
+    // change scheduleStatus to "scheduled", and sessions render on the /schedule calendar with RSVP.
+    scheduleStatus: "dates-pending",
+    date: null,
+    location: null,
+    sessions: [],
+    agenda: [
+      "Opening — the week's theme within the MAKE · MANAGE · MULTIPLY framework",
+      "Working session — applied exercises on real business scenarios",
+      "Member challenges and wins — peer review and accountability",
+      "Next actions — what to implement before the next session",
+    ],
+    audienceNote: "Open to Standard and Premium communities; replays published to the Workshop Wednesday library.",
     status: "coming-soon",
   },
   {
@@ -238,8 +254,20 @@ export const EVENTS = [
     title: "Capital Call",
     pillar: "multiply",
     kind: "VIP Workshop Series",
+    format: "Executive Workshop",
     description:
       "Funding and acquisition workshop intensives for established owners and strategic acquirers — part of the VIP executive experience.",
+    scheduleStatus: "dates-pending",
+    date: null,
+    location: null,
+    sessions: [],
+    agenda: [
+      "Capital landscape — borrowing, reinvestment, and timing decisions",
+      "Case work — funding-readiness and acquisition scenarios",
+      "Peer review — structured discussion among owners and acquirers",
+      "Commitments — documented next steps with accountability",
+    ],
+    audienceNote: "VIP members — established business owners and strategic acquirers.",
     status: "coming-soon",
   },
   {
@@ -247,8 +275,19 @@ export const EVENTS = [
     title: "Meet the Moguls",
     pillar: "make",
     kind: "Community Meetup",
+    format: "In-Person + Online",
     description:
       "Community connection and peer learning for emerging entrepreneurs — connect, learn, and grow alongside people building at your stage.",
+    scheduleStatus: "dates-pending",
+    date: null,
+    location: null,
+    sessions: [],
+    agenda: [
+      "Introductions — who is building what, and at which stage",
+      "Member spotlight — one entrepreneur's current challenge, workshopped by the room",
+      "Open networking — relationships with people pursuing meaningful goals",
+    ],
+    audienceNote: "Standard community — emerging entrepreneurs.",
     status: "coming-soon",
   },
   {
@@ -256,8 +295,20 @@ export const EVENTS = [
     title: "The Owner's Boardroom",
     pillar: "multiply",
     kind: "Executive Case Lab",
+    format: "Executive Session",
     description:
       "Strategic case labs for VIP members — working through real business scenarios with structure, discipline, and peer accountability.",
+    scheduleStatus: "dates-pending",
+    date: null,
+    location: null,
+    sessions: [],
+    agenda: [
+      "Case presentation — a real operating or acquisition scenario",
+      "Structured analysis — valuation, risk, and capital considerations",
+      "Boardroom discussion — executive-level peer challenge",
+      "Resolution — decision frameworks applied and documented",
+    ],
+    audienceNote: "VIP members — owners and strategic acquirers.",
     status: "coming-soon",
   },
 ];
@@ -282,6 +333,8 @@ export const FOUNDER = {
   name: "Antonio Cook",
   knownAs: "Mr. Mogul Maker",
   role: "Founder — Entrepreneur, Business Strategist, Author & Educator",
+  // Add the approved portrait URL here when supplied; the placeholder is shown until then.
+  photoUrl: null,
   bio: [
     "Mogul Maker Academy reflects Antonio Cook's experience building businesses, navigating corporate structures, developing capital-readiness strategies, and exploring business ownership and investments.",
     "The Academy exists to connect education with implementation — practical courses, live workshops, business-building resources, coaching opportunities, and an entrepreneurial community, organized through the proprietary MAKE · MANAGE · MULTIPLY philosophy.",

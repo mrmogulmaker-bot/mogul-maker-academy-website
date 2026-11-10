@@ -24,21 +24,32 @@ Integrate the proprietary **3M Framework — MAKE, MANAGE, MULTIPLY** into the e
 - Enquiry capture: /enquiry page + homepage rail; wired to backend with Sonner toast; submissions stored in MongoDB
 - Institutional disclaimers (no guaranteed wealth/returns/funding) on footer, courses, enquiry
 
+## What's Been Implemented (2026-11-10, phase 2)
+- Course detail pages (/courses/:id) for all 38 modules: pillar/level/status tags, extensible description+lessons+outcomes sections (render when approved fields are added to content.js), classification sidebar, related methods, related pillar modules, notify CTA
+- Insights Journal: /journal index with 3M pillar filters + featured essay; /journal/:slug article pages with related-catalog crosslinks; 4 launch essays in /app/frontend/src/data/articles.js (Money Follows Management; Find Your Mogul Path; Build It or Buy It?; valuation intro)
+- Live event infrastructure: each of the 4 programs has a detail page (/events/:id) with agenda, audience, schedule panel; /schedule dated calendar renders automatically when an event's date/location/sessions are approved in content.js; RSVP system wired to backend (POST/GET /api/rsvps, Mongo `rsvps` collection)
+- Founder photo slot: /app/frontend/src/components/FounderPhoto.jsx — renders real portrait when FOUNDER.photoUrl is set in content.js; honest placeholder until then (no fabricated likeness)
+- Journal added to main nav; Event Schedule + Insights Journal added to footer
+
 ## Verified
 - POST/GET /api/enquiries via curl (201, stored, listed)
+- POST/GET /api/rsvps via curl (201, stored, filtered by event_id)
 - Homepage hero/framework/curriculum screenshots at 1920px; courses page renders 38 cards; MULTIPLY filter → 14, VIP+MULTIPLY → 9; enquiry form submitted through UI, toast shown, record in DB
-- NOT verified: true mobile (390px) rendering — screenshot tool forced 1920 width
+- Phase 2: course detail page (/courses/vip-7), journal index + MULTIPLY filter (2 articles), article page, schedule page screenshotted at 1920px — all render correctly
+- NOT verified: true mobile (390px) rendering — screenshot tool forced 1920 width; RSVP form only exercised via API (no scheduled events exist yet to render it in UI)
 
 ## Missing / Needed From Owner
-- Real founder photography of Antonio Cook (currently honest placeholder)
-- Specific in-person workshop/event cities and dates
+- Real founder photography of Antonio Cook → set FOUNDER.photoUrl in /app/frontend/src/data/content.js
+- Approved event dates/venues → set date/location/sessions + scheduleStatus:"scheduled" on events in content.js; the /schedule calendar and RSVP form activate automatically
+- Approved course descriptions, lessons, and outcomes → add description/lessons/outcomes fields per course in content.js; detail pages render them automatically
 - Verified testimonials/proof points when approved
 - Official avatar names (using neutral stage descriptors)
 - Real video asset if a literal hero video (vs. cinematic image sequence) is desired
 
 ## Backlog
-- P1: Founder photo + real event details once supplied
+- P1: Founder photo + real event details once supplied (slots are ready)
 - P1: Mobile viewport verification at true 390px
-- P2: CMS/admin editing of content collections; course detail pages with descriptions once approved
+- P1: Exercise RSVP form in UI once first event is scheduled
+- P2: CMS/admin editing of content collections (courses, events, articles) so non-developers can publish
 - P2: Future PAIGE integration (mentioned in directive, not scoped yet)
 - P2: Cloudflare deployment migration of the stack
