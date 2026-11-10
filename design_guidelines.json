@@ -1,0 +1,166 @@
+{
+  "build_manifest": {
+    "direction": {
+      "path": "/app/design/direction.html",
+      "app_type": "hybrid_fullstack",
+      "ambition": "A3",
+      "mode": "light",
+      "rail": "form",
+      "spine": "INSTITUTIONAL",
+      "name": "Modern Ownership Institution",
+      "tone": "authoritative-editorial",
+      "axes": {
+        "layout": "left-rail",
+        "hero": "type-only",
+        "tone_register": "authoritative-editorial",
+        "proof": "honest-empty",
+        "motion": "interactive-reveal",
+        "colour": "warm-ivory+midnight-navy+champagne-gold",
+        "type_pairing": "serif-display+sans-body"
+      }
+    },
+    "tone_tokens": {
+      "typography": {
+        "display": {
+          "family": "Fraunces, Didot, 'Bodoni MT', Georgia, serif",
+          "class": "font-display"
+        },
+        "body": {
+          "family": "Manrope, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "class": "font-sans"
+        },
+        "scale": {
+          "h1": "text-[clamp(36px,5.2vw,76px)] leading-[0.98] tracking-[-0.03em]",
+          "h2": "text-[clamp(28px,3.8vw,48px)] tracking-[-0.02em] leading-tight",
+          "h3": "text-2xl",
+          "h4": "text-lg",
+          "body": "text-base text-[#5F6773]",
+          "small": "text-xs",
+          "overline": "text-[11px] md:text-xs uppercase tracking-[0.18em]"
+        }
+      },
+      "colors": {
+        "navy": "#101B2B",
+        "ivory": "#F7F4EE",
+        "gold": "#C6A66B",
+        "charcoal": "#202832",
+        "slate": "#5F6773",
+        "white": "#FFFFFF",
+        "teal": "#285F58",
+        "blue": "#275977",
+        "bronze": "#80551E"
+      },
+      "spacing": "Generous spacing rhythms using py-24 to py-32 for section blocks. Layout is contained within max-w-7xl.",
+      "radii": "sm (rounded-sm) for standard containers and buttons to maintain sharp, institutional look.",
+      "shadows": "Minimal. shadow-sm on light cards to lift off background slightly."
+    },
+    "conversion_wiring": {
+      "primary_action": "form",
+      "locations": [
+        "Header Navigation: #enquiry anchor button",
+        "Hero Section: #enquiry anchor button",
+        "Enquiry Rail (Bottom): Enquiry Form submission"
+      ],
+      "behavior": "Form prevents default submission. Capture Full Name, Work Email, and Current Operating Stage. Should display a success message via Sonner toast."
+    },
+    "content_slots": [
+      {
+        "slot": "brand-name",
+        "text": "MOGUL MAKER ACADEMY",
+        "source": "brief"
+      },
+      {
+        "slot": "primary-cta",
+        "text": "Find Your Mogul Path",
+        "source": "brief"
+      },
+      {
+        "slot": "hero-sub",
+        "text": "Practical education, strategic guidance, and a community built for entrepreneurs and owners at every stage.",
+        "source": "brief"
+      },
+      {
+        "slot": "cta-1",
+        "text": "FIND YOUR MOGUL PATH",
+        "source": "brief"
+      },
+      {
+        "slot": "cta-2",
+        "text": "EXPLORE THE ACADEMY",
+        "source": "brief"
+      },
+      {
+        "slot": "defining-quote",
+        "text": "“We're not here to teach you how to look successful. We're here to help you develop the knowledge, discipline, and capabilities to build something valuable.”",
+        "source": "brief"
+      }
+    ],
+    "fabrication_guardrails": [
+      "No invented stats, testimonials, student outcomes, credentials, or deal scenes.",
+      "No founder likenesses created/fabricated (use placeholder if needed).",
+      "No guaranteed-wealth language.",
+      "No wealth-symbol imagery (jets, cars, cash, watches).",
+      "No generic handshakes or meaningless charts.",
+      "Maintain honest placeholders for any missing real-world proof points."
+    ],
+    "locale": {
+      "language": "en-US",
+      "currency": "USD",
+      "formatting": "Standard US numbers and dates"
+    }
+  },
+  "typography": {
+    "font_families": [
+      "Fraunces",
+      "Manrope"
+    ],
+    "headings": "Fraunces for display headings with tight tracking. Use uppercase tracking-[0.16em] to [0.2em] for overlines and tags.",
+    "body": "Manrope for readability. Light to medium weights.",
+    "links_and_buttons": "Manrope, usually uppercase with tracking-wider or tracking-[0.14em] for institutional authority."
+  },
+  "colors": {
+    "primary": "#101B2B",
+    "background": "#F7F4EE",
+    "accent": "#C6A66B",
+    "text_main": "#202832",
+    "text_muted": "#5F6773",
+    "make_pillar": "#285F58",
+    "manage_pillar": "#275977",
+    "multiply_pillar": "#80551E"
+  },
+  "layouts": {
+    "sections": "Alternate between light ivory backgrounds with dark text, and dark navy/charcoal backgrounds with light text to segment content clearly.",
+    "grids": "Use 3-column bento/grid setups for the 3M Framework and Course Catalog to emphasize equal weighting of the 3 pillars."
+  },
+  "component_usage": {
+    "buttons": "Square or rounded-sm, solid accent colors or subtle borders with hover transitions. Avoid generic pill shapes to maintain an executive institutional feel.",
+    "cards": "Flat design with thick border tops representing the pillar color. Minimal shadows.",
+    "inputs": "Flat inputs with subtle borders, blending into dark backgrounds. Sharp focus states."
+  },
+  "image_urls": [
+    {
+      "category": "Hero Background / Visual",
+      "description": "hero: strategic operating review with business owner and balance sheet working session",
+      "url": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHw0fHxidXNpbmVzcyUyMG93bmVyJTIwc3RyYXRlZ3klMjBtZWV0aW5nJTIwb2ZmaWNlfGVufDB8fHx8MTc5NDI4NDczOHww&ixlib=rb-4.1.0&q=85"
+    }
+  ],
+  "instructions_to_main_agent": "/app/design/direction.html is the visual source of truth. These guidelines transcribe it and add real images. On any conflict, the direction file wins. Ensure that the 6-Act narrative animation elements from the HTML file are replicated exactly as provided in the CSS. Preserve the data-testid attributes for testing.",
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "You tend to converge toward generic, 'on distribution' outputs. In frontend design, this creates what users call the 'AI slop' aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Main agent relies on these image URLs. Missing categories (especially sponsor logos) = main agent will use placeholder text which is FORBIDDEN",
+    "Prioritize using pre-existing components from src/components/ui when applicable",
+    "Create new components that match the style and conventions of existing components when needed",
+    "Use sonner for toasts, located in /app/src/components/ui/sonner.tsx (if tsx) or .jsx",
+    "Ensure the application leverages the design system properly and creates an authoritative-editorial vibe."
+  ]
+}
