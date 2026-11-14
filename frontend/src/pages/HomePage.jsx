@@ -603,15 +603,21 @@ const Founder = () => (
           {FOUNDER_V2.relationship}
         </p>
         {FOUNDER_V2.externalUrl ? (
-          <a
-            href={FOUNDER_V2.externalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="founder-external-cta"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#115754] text-[#FBF6EB] text-xs font-bold uppercase tracking-[0.12em] rounded-sm hover:bg-[#17716c] transition-colors"
-          >
-            {FOUNDER_V2.cta} <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          <div>
+            <a
+              href={FOUNDER_V2.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("cta_clicked", { cta: "explore-mr-mogul-maker", location: "founder-section" })}
+              data-testid="founder-external-cta"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#115754] text-[#FBF6EB] text-xs font-bold uppercase tracking-[0.12em] rounded-sm hover:bg-[#17716c] transition-colors"
+            >
+              {FOUNDER_V2.cta} <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+            <p className="mt-2 text-[10px] text-[#FBF6EB]/40">
+              {FOUNDER_V2.externalNote}
+            </p>
+          </div>
         ) : (
           <div data-testid="founder-external-cta-pending">
             <span className="inline-flex items-center gap-2 px-6 py-3 border border-[#FBF6EB]/25 text-[#FBF6EB]/60 text-xs font-bold uppercase tracking-[0.12em] rounded-sm cursor-default">

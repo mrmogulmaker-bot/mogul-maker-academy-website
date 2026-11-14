@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { V2_PILLARS } from "@/data/v2";
+import { Instagram, Youtube } from "lucide-react";
+import { V2_PILLARS, DESTINATIONS } from "@/data/v2";
 
 export const Footer = () => (
   <footer
@@ -60,14 +61,33 @@ export const Footer = () => (
           Community & Legal
         </div>
         <ul className="space-y-2.5">
-          <li><Link to="/contact" state={{ subject: "member-login" }} className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-member-login">Community / Member Login</Link></li>
+          <li><a href={DESTINATIONS.skoolCommunity} target="_blank" rel="noopener noreferrer" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-member-login">Community / Member Login</a></li>
           <li><Link to="/privacy" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-privacy">Privacy Policy</Link></li>
           <li><Link to="/terms" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-terms">Terms of Use</Link></li>
           <li><Link to="/accessibility" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-accessibility">Accessibility</Link></li>
         </ul>
-        <p className="text-[10px] text-[#FBF6EB]/40 leading-relaxed mt-5">
-          Social channels are linked here once the Academy's official profiles are verified.
-        </p>
+        <div className="flex items-center gap-4 mt-5">
+          <a
+            href={DESTINATIONS.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Mr. Mogul Maker on Instagram"
+            data-testid="footer-social-instagram"
+            className="text-[#9FB8C8] hover:text-[#C29949] transition-colors"
+          >
+            <Instagram className="w-4 h-4" />
+          </a>
+          <a
+            href={DESTINATIONS.youtube}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Mr. Mogul Maker on YouTube"
+            data-testid="footer-social-youtube"
+            className="text-[#9FB8C8] hover:text-[#C29949] transition-colors"
+          >
+            <Youtube className="w-4 h-4" />
+          </a>
+        </div>
       </div>
     </div>
 

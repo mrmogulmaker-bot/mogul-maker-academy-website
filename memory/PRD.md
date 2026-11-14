@@ -52,6 +52,14 @@ Integrate the proprietary **3M Framework — MAKE, MANAGE, MULTIPLY** into the e
 - Phase 2: course detail page (/courses/vip-7), journal index + MULTIPLY filter (2 articles), article page, schedule page screenshotted at 1920px — all render correctly
 - NOT verified: true mobile (390px) rendering — screenshot tool forced 1920 width; RSVP form only exercised via API (no scheduled events exist yet to render it in UI)
 
+## Verified Destinations Wired (2026-11-14)
+- Skool member community (Community / Member Login in footer + contact page note): https://www.skool.com/mogul-maker-group-8193/about — LIVE, 167 members
+- Founder external CTA ("EXPLORE MR. MOGUL MAKER" on homepage + About): https://www.youtube.com/@mrmogulmaker — verified via multiple sources
+- Socials in footer: Instagram https://www.instagram.com/mrmogulmaker + YouTube (same channel)
+- mrmogulmaker.com does NOT currently resolve (hosting down) — CTA points to YouTube with a note; swap DESTINATIONS/FOUNDER_V2 in v2.js when the site is restored
+- mogulmakeracademy.com (current live site) is DOWN — Cloudflare error 522 (origin timeout); flag to owner
+- DISCREPANCY: live Skool pricing is Standard $8/mo, Premium $44/mo, VIP $197/mo — owner-confirmed 2027 relaunch rates are $19/$49/$197. Neither is displayed on the website per directive; Skool checkout remains the pricing source of truth until relaunch.
+
 ## Missing / Needed From Owner
 - Final approval of homepage mission headline treatment ("Better Decisions. Real Capabilities. Measurable Progress.")
 - Verified URL for the independent Mr. Mogul Maker website → set FOUNDER_V2.externalUrl in v2.js

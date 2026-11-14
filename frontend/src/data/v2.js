@@ -280,8 +280,18 @@ export const FOUNDER_V2 = {
   ],
   relationship:
     "Mr. Mogul Maker produces business education, thought leadership, speaking engagements, media appearances, commentary, and original intellectual property. Mogul Maker Academy is an educational and implementation business that features and appropriately licenses founder content.",
-  externalUrl: null, // set to the verified independent Mr. Mogul Maker website when supplied
+  externalUrl: "https://www.youtube.com/@mrmogulmaker",
+  externalNote:
+    "Verified YouTube destination. The independent mrmogulmaker.com website is linked here once its hosting is restored.",
   cta: "EXPLORE MR. MOGUL MAKER",
+};
+
+// Verified destinations (checked 2026-11-14). Add only confirmed, owner-approved URLs here.
+export const DESTINATIONS = {
+  skoolCommunity: "https://www.skool.com/mogul-maker-group-8193/about",
+  founderYouTube: "https://www.youtube.com/@mrmogulmaker",
+  instagram: "https://www.instagram.com/mrmogulmaker",
+  youtube: "https://www.youtube.com/@mrmogulmaker",
 };
 
 export const LEARN_LEVELS = [

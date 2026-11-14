@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Reveal } from "@/components/Reveal";
+import { DESTINATIONS } from "@/data/v2";
 
 const ContactPage = () => {
   const location = useLocation();
@@ -32,11 +34,18 @@ const ContactPage = () => {
                   <div className="text-[10px] uppercase tracking-[0.16em] font-bold text-[#115754] mb-1">
                     Community / Member Login
                   </div>
-                  <p className="text-xs text-[#142635]/65 leading-relaxed">
-                    The member community currently runs on the Academy's verified community
-                    platform. Send this form with "Community / Member Login" in your message and
-                    we'll direct you to the right destination.
+                  <p className="text-xs text-[#142635]/65 leading-relaxed mb-3">
+                    The member community runs on the Academy's verified Skool platform.
                   </p>
+                  <a
+                    href={DESTINATIONS.skoolCommunity}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid="member-login-destination"
+                    className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-bold text-[#115754] border-b-2 border-[#C29949] pb-1 hover:text-[#142635] transition-colors"
+                  >
+                    Open the member community <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
                 </div>
               )}
               <div>
