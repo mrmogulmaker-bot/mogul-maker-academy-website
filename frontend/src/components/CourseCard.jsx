@@ -1,23 +1,29 @@
 import { Link } from "react-router-dom";
 import { PILLARS, LEVELS } from "@/data/content";
 
+const PILLAR_COLORS = {
+  make: { base: "#115754", onDark: "#7FD4C8" },
+  manage: { base: "#C29949", onDark: "#E4C87F" },
+  multiply: { base: "#142635", onDark: "#9FB8C8" },
+};
+
 const STATUS_STYLES = {
-  "coming-soon": { label: "Coming Soon", classes: "text-[#C6A66B] border-[#C6A66B]/40" },
+  "coming-soon": { label: "Coming Soon", classes: "text-[#C29949] border-[#C29949]/50" },
   "in-development": { label: "In Development", classes: "text-[#5F6773] border-[#5F6773]/50" },
 };
 
-export const CourseCard = ({ course, dark = true }) => {
+export const CourseCard = ({ course, dark = false }) => {
   const pillar = PILLARS[course.pillar];
   const level = LEVELS[course.level];
   const status = STATUS_STYLES[course.status] || STATUS_STYLES["coming-soon"];
+  const colors = PILLAR_COLORS[course.pillar] || PILLAR_COLORS.make;
 
   const shell = dark
-    ? "bg-[#202832] border-[#5F6773]/30"
-    : "bg-white border-[#5F6773]/20 shadow-sm";
-  const titleColor = dark ? "text-white" : "text-[#101B2B]";
-  const bodyColor = dark ? "text-[#F7F4EE]/70" : "text-[#5F6773]";
-  const footerBorder = dark ? "border-[#101B2B]" : "border-[#F7F4EE]";
-  const footerColor = "text-[#5F6773]";
+    ? "bg-[#0E1D29] border-[#115754]/40"
+    : "bg-white border-[#142635]/15 shadow-sm";
+  const titleColor = dark ? "text-white" : "text-[#142635]";
+  const bodyColor = dark ? "text-[#FBF6EB]/70" : "text-[#142635]/65";
+  const footerBorder = dark ? "border-[#142635]" : "border-[#FBF6EB]";
 
   return (
     <Link
@@ -30,8 +36,8 @@ export const CourseCard = ({ course, dark = true }) => {
           <span
             className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded"
             style={{
-              backgroundColor: `${pillar.color}${dark ? "4D" : "1A"}`,
-              color: dark ? pillar.onDarkText : pillar.color,
+              backgroundColor: `${colors.base}${dark ? "4D" : "1A"}`,
+              color: dark ? colors.onDark : colors.base,
             }}
             data-testid={`course-tag-${course.id}`}
           >
@@ -50,7 +56,7 @@ export const CourseCard = ({ course, dark = true }) => {
         <p className={`text-xs ${bodyColor} leading-relaxed`}>{course.focus}</p>
       </div>
       <div
-        className={`mt-6 pt-4 border-t ${footerBorder} text-[11px] ${footerColor} uppercase tracking-wider flex items-center justify-between`}
+        className={`mt-6 pt-4 border-t ${footerBorder} text-[11px] text-[#5F6773] uppercase tracking-wider flex items-center justify-between`}
       >
         <span>{level.audience}</span>
         <span>{course.kind === "course" ? "Core Course" : "Experience"}</span>

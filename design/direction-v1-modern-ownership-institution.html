@@ -1,0 +1,420 @@
+<div class="dir-1 bg-[#F7F4EE] text-[#202832] antialiased selection:bg-[#C6A66B]/20 selection:text-[#101B2B] min-h-screen">
+<style>
+.dir-1 {
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --navy: #101B2B;
+  --ivory: #F7F4EE;
+  --gold: #C6A66B;
+  --charcoal: #202832;
+  --slate: #5F6773;
+  --white: #FFFFFF;
+  --teal: #285F58;
+  --blue: #275977;
+  --bronze: #80551E;
+}
+.dir-1 .font-display {
+  font-family: "Fraunces", "Didot", "Bodoni MT", Georgia, serif;
+  font-optical-sizing: auto;
+}
+.dir-1 .d1-hero-line {
+  display: block;
+  overflow: hidden;
+}
+.dir-1 .d1-hero-line > span {
+  display: block;
+  animation: d1-rise 1.1s cubic-bezier(0.2, 0.7, 0, 1) both;
+}
+.dir-1 .d1-hero-line:nth-child(2) > span { animation-delay: 0.14s; }
+.dir-1 .d1-hero-line:nth-child(3) > span { animation-delay: 0.28s; }
+.dir-1 .d1-fade-up {
+  animation: d1-up 0.9s cubic-bezier(0.2, 0.7, 0, 1) both;
+  animation-delay: 0.5s;
+}
+.dir-1 .d1-reveal-panel {
+  animation: d1-wipe 1.2s 0.2s cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+.dir-1 .d1-mq-track {
+  display: flex;
+  width: max-content;
+  animation: d1-mq 38s linear infinite;
+}
+.dir-1 .d1-line-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: d1-draw 1.8s 0.4s cubic-bezier(0.2, 0.7, 0, 1) both;
+}
+.dir-1 .d1-act-progress {
+  animation: d1-act 12s cubic-bezier(0.2, 0.7, 0, 1) infinite;
+}
+@keyframes d1-rise {
+  from { transform: translateY(115%); opacity: 0.001; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes d1-up {
+  from { transform: translateY(18px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes d1-wipe {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes d1-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes d1-mq {
+  to { transform: translateX(-50%); }
+}
+@keyframes d1-act {
+  0%, 16% { width: 16.66%; }
+  33% { width: 33.33%; }
+  50% { width: 50%; }
+  66% { width: 66.66%; }
+  83% { width: 83.33%; }
+  100% { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dir-1 * { animation: none !important; }
+}
+</style>
+
+<!-- INSTITUTION NAV -->
+<nav class="sticky top-0 z-40 bg-[#101B2B] border-b border-[#202832] text-[#F7F4EE] px-6 lg:px-12 py-4">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-3 group text-left">
+      <svg class="w-8 h-8 text-[#C6A66B] flex-shrink-0" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="28" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M8 22V10L16 18L24 10V22" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="d1-line-draw" pathLength="1"/>
+      </svg>
+      <div class="flex flex-col">
+        <span class="font-display text-sm tracking-tight font-semibold text-[#FFFFFF]" data-content-slot="brand-name" data-slot-source="brief">MOGUL MAKER ACADEMY</span>
+        <span class="text-[10px] tracking-[0.16em] uppercase text-[#C6A66B]">The Modern Ownership Institution</span>
+      </div>
+    </a>
+    
+    <div class="hidden md:flex items-center gap-8 text-xs tracking-wider uppercase text-[#F7F4EE]/80">
+      <a href="#framework" class="hover:text-[#C6A66B] transition-colors">3M Framework</a>
+      <a href="#curriculum" class="hover:text-[#C6A66B] transition-colors">Curriculum</a>
+      <a href="#pathways" class="hover:text-[#C6A66B] transition-colors">Pathways</a>
+      <a href="#philosophy" class="hover:text-[#C6A66B] transition-colors">Philosophy</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <a href="#enquiry" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold tracking-wider uppercase text-[#101B2B] bg-[#C6A66B] hover:bg-[#d4b77f] transition-colors rounded-sm" data-content-slot="primary-cta" data-slot-source="brief">
+        Find Your Mogul Path
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- CINEMATIC NARRATIVE HERO -->
+<header id="hero" class="relative bg-[#101B2B] text-[#F7F4EE] pt-16 pb-20 lg:pt-24 lg:pb-28 px-6 lg:px-12 border-b border-[#202832] overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <!-- 6-Act Cinematic Narrative Indicator -->
+    <div class="mb-10 pb-6 border-b border-[#202832]/80">
+      <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.16em] text-[#5F6773] mb-3">
+        <span class="text-[#C6A66B] font-semibold">Institutional Doctrine</span>
+        <span class="hidden sm:inline">6-Act Narrative: Ambition → Creation → Execution → Discipline → Ownership → Community</span>
+        <span class="text-[#F7F4EE]/70 font-mono">2027 SPEC</span>
+      </div>
+      <div class="w-full bg-[#202832] h-[2px] overflow-hidden rounded-full">
+        <div class="bg-[#C6A66B] h-full d1-act-progress"></div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end">
+      <div class="lg:col-span-8">
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#C6A66B] bg-[#C6A66B]/10 rounded mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C6A66B]"></span>
+          The Modern Ownership Institution
+        </div>
+        
+        <h1 class="font-display text-[clamp(36px,5.2vw,76px)] leading-[0.98] tracking-[-0.03em] font-medium text-[#FFFFFF] mb-8 text-balance">
+          <span class="d1-hero-line"><span>BUILD THE BUSINESS.</span></span>
+          <span class="d1-hero-line"><span>MASTER THE MONEY.</span></span>
+          <span class="d1-hero-line"><span class="text-[#C6A66B]">OWN YOUR FUTURE.</span></span>
+        </h1>
+
+        <p class="d1-fade-up text-base md:text-lg text-[#F7F4EE]/85 max-w-2xl font-light leading-relaxed mb-10" data-content-slot="hero-sub" data-slot-source="brief">
+          Practical education, strategic guidance, and a community built for entrepreneurs and owners at every stage.
+        </p>
+
+        <div class="d1-fade-up flex flex-wrap items-center gap-4">
+          <a href="#enquiry" class="px-7 py-3.5 bg-[#C6A66B] text-[#101B2B] text-xs font-bold tracking-[0.12em] uppercase rounded-sm hover:bg-[#d8bb83] transition-colors" data-content-slot="cta-1" data-slot-source="brief">
+            FIND YOUR MOGUL PATH
+          </a>
+          <a href="#framework" class="px-7 py-3.5 border border-[#F7F4EE]/30 text-[#F7F4EE] text-xs font-semibold tracking-[0.12em] uppercase rounded-sm hover:border-[#C6A66B] hover:text-[#C6A66B] transition-colors" data-content-slot="cta-2" data-slot-source="brief">
+            EXPLORE THE ACADEMY
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual Slot: Authentic Entrepreneurial Environment -->
+      <div class="lg:col-span-4">
+        <figure class="relative aspect-[4/5] bg-[#202832] rounded-sm overflow-hidden p-6 flex flex-col justify-between border border-[#5F6773]/20 d1-reveal-panel" data-image-slot="hero: strategic operating review with business owner and balance sheet working session">
+          <div class="flex items-center justify-between text-[10px] uppercase tracking-wider text-[#C6A66B]">
+            <span>Documentary Archive</span>
+            <span>Ref: 01 // MAKE-MANAGE</span>
+          </div>
+          <div class="space-y-3">
+            <div class="h-[1px] w-12 bg-[#C6A66B]"></div>
+            <figcaption class="text-xs text-[#F7F4EE] font-light leading-snug">
+              Authentic entrepreneurial setting: strategic financial review & operational systems development.
+            </figcaption>
+            <div class="text-[10px] text-[#5F6773] tracking-widest uppercase font-mono">No Lifestyle Projections</div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- EDITORIAL TICKER -->
+<section class="bg-[#202832] border-b border-[#101B2B] py-3.5 px-4 overflow-hidden" aria-label="Core Doctrine Marquee">
+  <div class="d1-mq-track text-xs uppercase tracking-[0.18em] font-medium text-[#F7F4EE]/90">
+    <div class="flex items-center gap-10 pr-10">
+      <span class="text-[#C6A66B] font-serif italic">Money Follows Management</span>
+      <span>•</span>
+      <span>MAKE: Create Economic Value</span>
+      <span>•</span>
+      <span>MANAGE: Financial & Operating Discipline</span>
+      <span>•</span>
+      <span>MULTIPLY: Expand Enterprise Value</span>
+      <span>•</span>
+      <span class="text-[#C6A66B] font-serif italic">Practical Experience Over Business Theory</span>
+      <span>•</span>
+    </div>
+    <div class="flex items-center gap-10 pr-10" aria-hidden="true">
+      <span class="text-[#C6A66B] font-serif italic">Money Follows Management</span>
+      <span>•</span>
+      <span>MAKE: Create Economic Value</span>
+      <span>•</span>
+      <span>MANAGE: Financial & Operating Discipline</span>
+      <span>•</span>
+      <span>MULTIPLY: Expand Enterprise Value</span>
+      <span>•</span>
+      <span class="text-[#C6A66B] font-serif italic">Practical Experience Over Business Theory</span>
+      <span>•</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3M FRAMEWORK PILLAR TRIO (AUTHORITATIVE SECTION) -->
+<section id="framework" class="py-24 lg:py-32 bg-[#F7F4EE] text-[#202832] px-6 lg:px-12 border-b border-[#5F6773]/20">
+  <div class="max-w-7xl mx-auto">
+    <div class="max-w-3xl mb-16">
+      <div class="text-xs uppercase tracking-[0.16em] font-bold text-[#80551E] mb-3">Teaching Philosophy</div>
+      <h2 class="font-display text-[clamp(28px,3.8vw,48px)] font-medium text-[#101B2B] tracking-[-0.02em] leading-tight mb-4">
+        The 3M Framework™
+      </h2>
+      <p class="text-base text-[#5F6773] leading-relaxed">
+        Our proprietary teaching methodology structures entrepreneurship into three interdependent capabilities. Not a pricing tier, but an operating continuum.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- PILLAR 1: MAKE -->
+      <article class="bg-[#FFFFFF] border-t-4 border-[#285F58] p-8 lg:p-10 shadow-sm flex flex-col justify-between rounded-b-sm">
+        <div>
+          <div class="flex items-center justify-between mb-8">
+            <span class="text-xs uppercase tracking-[0.18em] font-bold text-[#285F58]">Pillar 01</span>
+            <span class="text-xs font-mono px-2 py-0.5 bg-[#285F58]/10 text-[#285F58] rounded">MAKE</span>
+          </div>
+          <h3 class="font-display text-2xl font-medium text-[#101B2B] mb-3">Create Economic Value</h3>
+          <p class="text-sm text-[#5F6773] leading-relaxed mb-6">
+            Validate demand, price for profit, acquire initial customers, and establish a real product-market engine from day one.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#F7F4EE] space-y-2">
+          <div class="text-[11px] uppercase tracking-wider text-[#202832] font-semibold">Core Competencies</div>
+          <ul class="text-xs text-[#5F6773] space-y-1.5 font-light">
+            <li>• Demand Validation & Pricing Logic</li>
+            <li>• First-to-Steady Sales Conversion</li>
+            <li>• Commercial Entity Setup & Viability</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- PILLAR 2: MANAGE -->
+      <article class="bg-[#FFFFFF] border-t-4 border-[#275977] p-8 lg:p-10 shadow-sm flex flex-col justify-between rounded-b-sm">
+        <div>
+          <div class="flex items-center justify-between mb-8">
+            <span class="text-xs uppercase tracking-[0.18em] font-bold text-[#275977]">Pillar 02</span>
+            <span class="text-xs font-mono px-2 py-0.5 bg-[#275977]/10 text-[#275977] rounded">MANAGE</span>
+          </div>
+          <h3 class="font-display text-2xl font-medium text-[#101B2B] mb-3">Financial & Operating Discipline</h3>
+          <p class="text-sm text-[#5F6773] leading-relaxed mb-4">
+            Cash management, unit economics, reporting cadences, and operating systems that remove the founder as sole bottleneck.
+          </p>
+          <div class="mb-6 p-3 bg-[#F7F4EE] rounded border-l-2 border-[#275977]">
+            <p class="font-display italic text-xs text-[#101B2B]">"Money Follows Management"</p>
+          </div>
+        </div>
+        <div class="pt-6 border-t border-[#F7F4EE] space-y-2">
+          <div class="text-[11px] uppercase tracking-wider text-[#202832] font-semibold">Core Competencies</div>
+          <ul class="text-xs text-[#5F6773] space-y-1.5 font-light">
+            <li>• Real-Time Unit Economics & P&amp;L</li>
+            <li>• Operating Dashboards & Delegation</li>
+            <li>• Capital Readiness & Banking Controls</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- PILLAR 3: MULTIPLY -->
+      <article class="bg-[#FFFFFF] border-t-4 border-[#80551E] p-8 lg:p-10 shadow-sm flex flex-col justify-between rounded-b-sm">
+        <div>
+          <div class="flex items-center justify-between mb-8">
+            <span class="text-xs uppercase tracking-[0.18em] font-bold text-[#80551E]">Pillar 03</span>
+            <span class="text-xs font-mono px-2 py-0.5 bg-[#80551E]/10 text-[#80551E] rounded">MULTIPLY</span>
+          </div>
+          <h3 class="font-display text-2xl font-medium text-[#101B2B] mb-3">Expand Ownership & Value</h3>
+          <p class="text-sm text-[#5F6773] leading-relaxed mb-6">
+            Strategic growth, enterprise valuation, balance sheet strength, acquisition diligence, and long-term equity compounding.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#F7F4EE] space-y-2">
+          <div class="text-[11px] uppercase tracking-wider text-[#202832] font-semibold">Core Competencies</div>
+          <ul class="text-xs text-[#5F6773] space-y-1.5 font-light">
+            <li>• Business Valuation & Diligence</li>
+            <li>• Buy-Side Acquisition Strategies</li>
+            <li>• Boardroom Governance & Scale</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM SAMPLE GRID (38 APPROVED 2027 COURSES) -->
+<section id="curriculum" class="py-24 bg-[#101B2B] text-[#F7F4EE] px-6 lg:px-12 border-b border-[#202832]">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+      <div>
+        <div class="text-xs uppercase tracking-[0.18em] font-semibold text-[#C6A66B] mb-2">2027 Master Catalog</div>
+        <h2 class="font-display text-[clamp(28px,3.5vw,44px)] font-medium text-[#FFFFFF] tracking-tight">Structured Course Catalog</h2>
+      </div>
+      <p class="text-xs font-mono text-[#5F6773] uppercase tracking-wider">
+        38 Institutional Modules • In Development
+      </p>
+    </div>
+
+    <!-- Catalog Row Sample across Tiers -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Standard Sample -->
+      <div class="bg-[#202832] p-6 rounded-sm border border-[#5F6773]/30 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#285F58]/30 text-[#8CD4CA] rounded">STANDARD • MAKE</span>
+            <span class="text-[10px] font-mono uppercase text-[#C6A66B] border border-[#C6A66B]/40 px-1.5 py-0.5 rounded">Coming Soon</span>
+          </div>
+          <h4 class="font-display text-lg text-[#FFFFFF] mb-2 font-medium">Start Here: Find Your Mogul Path</h4>
+          <p class="text-xs text-[#F7F4EE]/70 leading-relaxed">Orientation, baseline diagnostic, and personal operating pathway mapping.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-[#101B2B] text-[11px] text-[#5F6773] uppercase tracking-wider">
+          Foundational Stage
+        </div>
+      </div>
+
+      <!-- Premium Sample -->
+      <div class="bg-[#202832] p-6 rounded-sm border border-[#5F6773]/30 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#275977]/40 text-[#9DC8E4] rounded">PREMIUM • MANAGE</span>
+            <span class="text-[10px] font-mono uppercase text-[#C6A66B] border border-[#C6A66B]/40 px-1.5 py-0.5 rounded">Coming Soon</span>
+          </div>
+          <h4 class="font-display text-lg text-[#FFFFFF] mb-2 font-medium">Capital Without Chaos: Get Funding-Ready</h4>
+          <p class="text-xs text-[#F7F4EE]/70 leading-relaxed">Structuring clean books, lender metrics, and non-dilutive credit readiness.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-[#101B2B] text-[11px] text-[#5F6773] uppercase tracking-wider">
+          Growth & Systems
+        </div>
+      </div>
+
+      <!-- VIP Sample -->
+      <div class="bg-[#202832] p-6 rounded-sm border border-[#5F6773]/30 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 bg-[#80551E]/40 text-[#E0B986] rounded">VIP • MULTIPLY</span>
+            <span class="text-[10px] font-mono uppercase text-[#C6A66B] border border-[#C6A66B]/40 px-1.5 py-0.5 rounded">Coming Soon</span>
+          </div>
+          <h4 class="font-display text-lg text-[#FFFFFF] mb-2 font-medium">What's This Business Really Worth?</h4>
+          <p class="text-xs text-[#F7F4EE]/70 leading-relaxed">Valuation multiples, quality of earnings, and pre-transaction deal analysis.</p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-[#101B2B] text-[11px] text-[#5F6773] uppercase tracking-wider">
+          Executive & Acquirer
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDATIONAL HONEST PROOF & PHILOSOPHY -->
+<section id="philosophy" class="py-24 bg-[#F7F4EE] text-[#202832] px-6 lg:px-12 border-b border-[#5F6773]/20">
+  <div class="max-w-5xl mx-auto text-center">
+    <div class="inline-block px-3 py-1 bg-[#101B2B] text-[#C6A66B] text-[10px] uppercase tracking-[0.2em] font-semibold rounded mb-6">
+      Institutional Standard
+    </div>
+    
+    <blockquote class="font-display text-[clamp(22px,3vw,36px)] leading-tight text-[#101B2B] font-normal mb-8 max-w-4xl mx-auto" data-content-slot="defining-quote" data-slot-source="brief">
+      “We're not here to teach you how to look successful. We're here to help you develop the knowledge, discipline, and capabilities to build something valuable.”
+    </blockquote>
+
+    <div class="flex items-center justify-center gap-3 text-xs uppercase tracking-wider text-[#5F6773]">
+      <span class="font-semibold text-[#101B2B]">Antonio Cook</span>
+      <span>•</span>
+      <span>Founder & Business Strategist</span>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY RAIL (FORM) -->
+<section id="enquiry" class="py-24 bg-[#101B2B] text-[#F7F4EE] px-6 lg:px-12">
+  <div class="max-w-4xl mx-auto bg-[#202832] p-8 md:p-12 rounded-sm border border-[#5F6773]/30">
+    <div class="text-center max-w-xl mx-auto mb-10">
+      <span class="text-xs uppercase tracking-[0.18em] font-semibold text-[#C6A66B]">Begin Your Assessment</span>
+      <h3 class="font-display text-3xl font-medium text-[#FFFFFF] mt-2 mb-3">Find Your Mogul Path</h3>
+      <p class="text-xs text-[#F7F4EE]/75">Submit your current operating stage to receive institutional guidance and syllabus recommendation.</p>
+    </div>
+
+    <form class="space-y-4 max-w-xl mx-auto" onsubmit="return false;">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-[11px] uppercase tracking-wider text-[#F7F4EE]/80 mb-1.5 font-medium">Full Name</label>
+          <input type="text" placeholder="Alex Morgan" class="w-full bg-[#101B2B] border border-[#5F6773]/50 px-3.5 py-2.5 text-xs text-[#FFFFFF] placeholder-[#5F6773] focus:outline-none focus:border-[#C6A66B] rounded-sm">
+        </div>
+        <div>
+          <label class="block text-[11px] uppercase tracking-wider text-[#F7F4EE]/80 mb-1.5 font-medium">Work Email</label>
+          <input type="email" placeholder="alex@enterprise.com" class="w-full bg-[#101B2B] border border-[#5F6773]/50 px-3.5 py-2.5 text-xs text-[#FFFFFF] placeholder-[#5F6773] focus:outline-none focus:border-[#C6A66B] rounded-sm">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-[11px] uppercase tracking-wider text-[#F7F4EE]/80 mb-1.5 font-medium">Current Operating Stage</label>
+        <select class="w-full bg-[#101B2B] border border-[#5F6773]/50 px-3.5 py-2.5 text-xs text-[#FFFFFF] focus:outline-none focus:border-[#C6A66B] rounded-sm">
+          <option>Aspiring Entrepreneur / Validating Idea (Avatar C)</option>
+          <option>High-Income Earner Seeking Ownership (Avatar B)</option>
+          <option>Operating Business Owner Scaling Systems (Avatar A)</option>
+          <option>Strategic Owner & Emerging Acquirer (Avatar D)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full mt-4 py-3.5 bg-[#C6A66B] text-[#101B2B] text-xs font-bold uppercase tracking-[0.14em] hover:bg-[#d8bb83] transition-colors rounded-sm">
+        Request Pathway Consultation
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#101B2B] text-[#5F6773] border-t border-[#202832] py-12 px-6 lg:px-12 text-xs">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <span class="font-display text-sm font-semibold text-[#FFFFFF]">MOGUL MAKER ACADEMY</span>
+      <span class="text-[10px] tracking-widest uppercase text-[#C6A66B]">Est. 2027 Directive</span>
+    </div>
+    <div class="text-[11px] text-[#5F6773] text-center md:text-right">
+      <span>Structured Education & Real-World Application</span> • <span>Online & Executive Workshops</span>
+    </div>
+  </div>
+</footer>
+</div>

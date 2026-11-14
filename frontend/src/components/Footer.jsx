@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { PILLARS } from "@/data/content";
+import { V2_PILLARS } from "@/data/v2";
 
 export const Footer = () => (
   <footer
-    className="bg-[#101B2B] text-[#5F6773] border-t border-[#202832] py-14 px-6 lg:px-12 text-xs"
+    className="bg-[#142635] text-[#9FB8C8] border-t border-[#115754]/40 py-14 px-6 lg:px-12 text-xs"
     data-testid="site-footer"
   >
     <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
@@ -11,28 +11,29 @@ export const Footer = () => (
         <span className="font-display text-sm font-semibold text-white block">
           MOGUL MAKER ACADEMY
         </span>
-        <p className="text-[11px] leading-relaxed text-[#F7F4EE]/60 max-w-xs">
-          Practical education, strategic guidance, and a community built for entrepreneurs and
-          owners at every stage.
+        <p className="text-[11px] leading-relaxed text-[#FBF6EB]/60 max-w-xs">
+          A business ownership education and implementation platform — helping entrepreneurs
+          develop the knowledge, judgment, operational capabilities, and practical systems
+          required to build and manage valuable businesses.
         </p>
-        <span className="text-[10px] tracking-widest uppercase text-[#C6A66B] block">
-          Structured Education & Real-World Application
+        <span className="text-[10px] tracking-widest uppercase text-[#C29949] block">
+          MAKE • MANAGE • MULTIPLY
         </span>
       </div>
 
       <div className="md:col-span-2">
-        <div className="text-[10px] uppercase tracking-[0.18em] text-[#C6A66B] font-semibold mb-4">
-          3M Framework
+        <div className="text-[10px] uppercase tracking-[0.18em] text-[#C29949] font-semibold mb-4">
+          Philosophy
         </div>
         <ul className="space-y-2.5">
-          {Object.values(PILLARS).map((p) => (
+          {Object.values(V2_PILLARS).map((p) => (
             <li key={p.id}>
               <Link
-                to={`/framework/${p.id}`}
-                className="hover:text-[#F7F4EE] transition-colors"
+                to="/about"
+                className="hover:text-[#FBF6EB] transition-colors"
                 data-testid={`footer-pillar-${p.id}`}
               >
-                {p.name} MONEY
+                {p.name}
               </Link>
             </li>
           ))}
@@ -40,36 +41,48 @@ export const Footer = () => (
       </div>
 
       <div className="md:col-span-3">
-        <div className="text-[10px] uppercase tracking-[0.18em] text-[#C6A66B] font-semibold mb-4">
-          The Academy
+        <div className="text-[10px] uppercase tracking-[0.18em] text-[#C29949] font-semibold mb-4">
+          The Platform
         </div>
         <ul className="space-y-2.5">
-          <li><Link to="/courses" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-courses">Courses & Learning Pathways</Link></li>
-          <li><Link to="/methods" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-methods">Proprietary Methods</Link></li>
-          <li><Link to="/events" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-events">Events & Media</Link></li>
-          <li><Link to="/schedule" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-schedule">Event Schedule</Link></li>
-          <li><Link to="/journal" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-journal">Insights Journal</Link></li>
-          <li><Link to="/about" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-about">Founder & Mission</Link></li>
-          <li><Link to="/enquiry" className="hover:text-[#F7F4EE] transition-colors" data-testid="footer-link-enquiry">Enquiries</Link></li>
+          <li><Link to="/start-here" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-start-here">Start Here</Link></li>
+          <li><Link to="/learn" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-learn">Learn — The Academy</Link></li>
+          <li><Link to="/workshops" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-workshops">Workshops</Link></li>
+          <li><Link to="/implementation" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-implementation">Implementation</Link></li>
+          <li><Link to="/resources" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-resources">Resources</Link></li>
+          <li><Link to="/about" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-about">About MMA</Link></li>
+          <li><Link to="/contact" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-contact">Contact</Link></li>
         </ul>
       </div>
 
       <div className="md:col-span-3">
-        <div className="text-[10px] uppercase tracking-[0.18em] text-[#C6A66B] font-semibold mb-4">
-          Educational Standard
+        <div className="text-[10px] uppercase tracking-[0.18em] text-[#C29949] font-semibold mb-4">
+          Community & Legal
         </div>
-        <p className="text-[11px] leading-relaxed text-[#F7F4EE]/60">
-          Mogul Maker Academy provides entrepreneurial and financial education. We do not promise
-          or imply guaranteed wealth, investment returns, or funding outcomes. Courses marked
-          "Coming Soon" or "In Development" are part of the approved 2027 catalog and are not yet
-          published.
+        <ul className="space-y-2.5">
+          <li><Link to="/contact" state={{ subject: "member-login" }} className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-member-login">Community / Member Login</Link></li>
+          <li><Link to="/privacy" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-privacy">Privacy Policy</Link></li>
+          <li><Link to="/terms" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-terms">Terms of Use</Link></li>
+          <li><Link to="/accessibility" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-accessibility">Accessibility</Link></li>
+        </ul>
+        <p className="text-[10px] text-[#FBF6EB]/40 leading-relaxed mt-5">
+          Social channels are linked here once the Academy's official profiles are verified.
         </p>
       </div>
     </div>
 
-    <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-[#202832] flex flex-col md:flex-row items-center justify-between gap-4">
-      <span className="text-[11px]">Mogul Maker Academy — The Modern Ownership Institution</span>
-      <span className="text-[11px]">Online education & executive workshops</span>
+    <div className="max-w-7xl mx-auto mt-12 pt-6 border-t border-[#115754]/30">
+      <p className="text-[10px] leading-relaxed text-[#FBF6EB]/45 max-w-4xl">
+        Mogul Maker Academy provides entrepreneurial and financial education and separately
+        contracted implementation services. We do not advertise or imply guaranteed financing,
+        sales, income, business valuations, acquisitions, or investment returns. Educational
+        programs, memberships, workshops, and implementation services are distinct offerings with
+        their own terms.
+      </p>
+      <div className="mt-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[11px]">
+        <span>Mogul Maker Academy</span>
+        <span>Business ownership education & implementation</span>
+      </div>
     </div>
   </footer>
 );

@@ -1,39 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --navy: #101B2B;
-  --ivory: #F7F4EE;
-  --gold: #C6A66B;
-  --charcoal: #202832;
-  --slate: #5F6773;
-  --white: #FFFFFF;
-  --teal: #285F58;
-  --blue: #275977;
-  --bronze: #80551E;
+  /* 2027 Relaunch palette */
+  --navy: #142635;
+  --emerald: #115754;
+  --ivory: #FBF6EB;
+  --gold: #C29949;
+  --white: #ffffff;
 
-  --background: 42 30% 95%;
-  --foreground: 214 21% 15%;
+  --background: 43 56% 95%;
+  --foreground: 205 45% 14%;
   --card: 0 0% 100%;
-  --card-foreground: 214 21% 15%;
+  --card-foreground: 205 45% 14%;
   --popover: 0 0% 100%;
-  --popover-foreground: 214 21% 15%;
-  --primary: 216 45% 12%;
-  --primary-foreground: 42 30% 95%;
-  --secondary: 42 30% 92%;
-  --secondary-foreground: 214 21% 15%;
-  --muted: 42 20% 90%;
-  --muted-foreground: 217 9% 41%;
-  --accent: 36 42% 60%;
-  --accent-foreground: 216 45% 12%;
+  --popover-foreground: 205 45% 14%;
+  --primary: 181 68% 20%;
+  --primary-foreground: 43 56% 96%;
+  --secondary: 43 40% 92%;
+  --secondary-foreground: 205 45% 14%;
+  --muted: 43 25% 90%;
+  --muted-foreground: 205 15% 40%;
+  --accent: 40 50% 52%;
+  --accent-foreground: 205 45% 14%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
-  --border: 40 14% 84%;
-  --input: 40 14% 84%;
-  --ring: 36 42% 60%;
+  --border: 42 20% 84%;
+  --input: 42 20% 84%;
+  --ring: 181 68% 20%;
   --radius: 0.25rem;
 }
 
@@ -45,23 +42,22 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-[#F7F4EE] text-[#202832] antialiased;
+    @apply bg-[#FBF6EB] text-[#142635] antialiased;
     font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   ::selection {
-    background: rgba(198, 166, 107, 0.25);
-    color: #101b2b;
+    background: rgba(194, 153, 73, 0.28);
+    color: #142635;
   }
 }
 
 .font-display {
-  font-family: "Fraunces", "Didot", "Bodoni MT", Georgia, serif;
-  font-optical-sizing: auto;
+  font-family: "Sora", "Manrope", -apple-system, sans-serif;
 }
 
-/* ---------- Motion primitives (ported from approved direction) ---------- */
+/* ---------- Motion primitives ---------- */
 .mma-hero-line {
   display: block;
   overflow: hidden;
@@ -73,22 +69,14 @@
 .mma-hero-line:nth-child(2) > span {
   animation-delay: 0.14s;
 }
-.mma-hero-line:nth-child(3) > span {
-  animation-delay: 0.28s;
-}
 .mma-fade-up {
   animation: mma-up 0.9s cubic-bezier(0.2, 0.7, 0, 1) both;
-  animation-delay: 0.5s;
+  animation-delay: 0.45s;
 }
 .mma-mq-track {
   display: flex;
   width: max-content;
-  animation: mma-mq 38s linear infinite;
-}
-.mma-line-draw {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 0;
-  animation: mma-draw 1.8s 0.4s cubic-bezier(0.2, 0.7, 0, 1) both;
+  animation: mma-mq 42s linear infinite;
 }
 .mma-scroll-in {
   opacity: 0;
@@ -100,53 +88,47 @@
   opacity: 1;
   transform: translateY(0);
 }
+.mma-act-image {
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 6s linear;
+  will-change: opacity, transform;
+}
+.mma-line-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: mma-draw 1.8s 0.4s cubic-bezier(0.2, 0.7, 0, 1) both;
+}
 
 @keyframes mma-rise {
-  from {
-    transform: translateY(115%);
-    opacity: 0.001;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateY(115%); opacity: 0.001; }
+  to { transform: translateY(0); opacity: 1; }
 }
 @keyframes mma-up {
-  from {
-    transform: translateY(18px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  from { transform: translateY(18px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 @keyframes mma-mq {
-  to {
-    transform: translateX(-50%);
-  }
+  to { transform: translateX(-50%); }
 }
 @keyframes mma-draw {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
 }
 
-/* Cinematic hero acts */
-.mma-act-image {
-  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 6s linear;
-  will-change: opacity, transform;
+/* 3M connector animation */
+.mma-3m-connector {
+  stroke-dasharray: 6 6;
+  animation: mma-flow 1.6s linear infinite;
+}
+@keyframes mma-flow {
+  to { stroke-dashoffset: -12; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .mma-hero-line > span,
   .mma-fade-up,
   .mma-mq-track,
-  .mma-line-draw {
+  .mma-line-draw,
+  .mma-3m-connector {
     animation: none !important;
   }
   .mma-scroll-in {
@@ -159,7 +141,7 @@
   }
 }
 
-/* Subtle grain overlay for deep backgrounds */
+/* Subtle grain on deep backgrounds */
 .mma-grain {
   position: relative;
 }
