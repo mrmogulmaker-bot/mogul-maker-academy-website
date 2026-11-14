@@ -1,5 +1,9 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { Seo } from "@/components/Seo";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { track } from "@/utils/track";
 import { V2_RESOURCES, V2_PILLARS } from "@/data/v2";
 
@@ -22,18 +26,23 @@ const ResourcesPage = () => {
 
   return (
     <main className="bg-[#FBF6EB]" data-testid="resources-page">
-      <section className="bg-[#142635] text-[#FBF6EB] px-6 lg:px-12 py-20 lg:py-28 border-b border-[#115754]/40 mma-grain">
-        <div className="max-w-7xl mx-auto max-w-4xl">
+      <Seo
+        title="Free Resources — Business Education Library | Mogul Maker Academy"
+        description="Free business education organized by MAKE · MANAGE · MULTIPLY and business problem: starting a business, ownership, teams and systems, capital decisions, acquisitions, and legacy."
+      />
+      <section className="bg-[#142635] text-[#FBF6EB] px-6 lg:px-12 py-20 lg:py-24 border-b border-[#115754]/40 mma-grain">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Free Resources" }]} />
           <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#C29949] mb-3">
-            Resources
+            Free Resources
           </div>
           <h1 className="font-display text-[clamp(32px,4.5vw,60px)] font-bold text-white tracking-[-0.02em] leading-tight mb-6">
-            Free Business Education, Organized by Problem
+            Start With a Better Decision.
           </h1>
           <p className="text-sm md:text-base text-[#FBF6EB]/75 max-w-3xl font-light leading-relaxed">
-            Practical tools, original guides, video lessons, and assessments — organized by
-            MAKE · MANAGE · MULTIPLY and by the business problem you're actually facing. No
-            purchase required.
+            We believe useful business education should be accessible. Explore original insights,
+            founder perspectives, business stories, and practical resources designed to help you
+            identify challenges and take meaningful action.
           </p>
         </div>
       </section>
@@ -43,7 +52,7 @@ const ResourcesPage = () => {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center gap-5">
           <div className="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by 3M pillar">
             <span className="text-[10px] uppercase tracking-[0.16em] font-bold text-[#142635]/50 mr-1">
-              Pillar
+              Category
             </span>
             <button
               onClick={() => setPillar("all")}
@@ -89,7 +98,7 @@ const ResourcesPage = () => {
           {filtered.length === 0 ? (
             <div className="py-20 text-center" data-testid="resource-empty-state">
               <p className="font-display text-2xl text-[#142635] mb-2">Nothing matches that search.</p>
-              <p className="text-sm text-[#142635]/60">Try a different problem or clear the pillar filter.</p>
+              <p className="text-sm text-[#142635]/60">Try a different problem or clear the category filter.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -143,12 +152,22 @@ const ResourcesPage = () => {
             </div>
           )}
 
-          <Reveal className="mt-14 p-6 bg-[#115754]/5 border border-[#115754]/20 rounded-sm">
-            <p className="text-xs text-[#142635]/65 leading-relaxed max-w-3xl" data-testid="resources-honesty-note">
+          <Reveal className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 bg-[#115754]/5 border border-[#115754]/20 rounded-sm">
+            <p className="text-xs text-[#142635]/65 leading-relaxed lg:col-span-8" data-testid="resources-honesty-note">
               Only resources that exist and are approved for distribution are offered for access.
-              Items marked "In Development" are clearly identified design concepts shown in
-              preview — they are not live public offerings.
+              Items marked "In Development" are clearly identified preview concepts — not live
+              public offerings. Paid course content and proprietary implementation frameworks are
+              never published here.
             </p>
+            <div className="lg:col-span-4 lg:text-right">
+              <Link
+                to="/academy"
+                data-testid="resources-academy-cta"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#115754] text-[#FBF6EB] text-xs font-bold uppercase tracking-[0.12em] rounded-sm hover:bg-[#17716c] transition-colors"
+              >
+                EXPLORE THE ACADEMY <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

@@ -2,6 +2,8 @@ import { useLocation } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Reveal } from "@/components/Reveal";
+import { Seo } from "@/components/Seo";
+import { ContactStrip } from "@/components/ContactBlock";
 import { DESTINATIONS } from "@/data/v2";
 
 const ContactPage = () => {
@@ -18,13 +20,18 @@ const ContactPage = () => {
           <h1 className="font-display text-[clamp(32px,4.5vw,60px)] font-bold text-white tracking-[-0.02em] leading-tight mb-6">
             Start the Conversation
           </h1>
-          <p className="text-sm md:text-base text-[#FBF6EB]/75 max-w-3xl font-light leading-relaxed">
+          <p className="text-sm md:text-base text-[#FBF6EB]/75 max-w-3xl font-light leading-relaxed mb-6">
             Questions about the Academy, workshops, implementation services, or partnerships —
             tell us where you are and what you're working toward.
           </p>
+          <ContactStrip dark />
         </div>
       </section>
 
+      <Seo
+        title="Contact Mogul Maker Academy"
+        description="Questions about the Academy, workshops, implementation services, or partnerships. Call or text +1 (470) 517-7009, or send the enquiry form."
+      />
       <section className="px-6 lg:px-12 py-16 lg:py-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-5">

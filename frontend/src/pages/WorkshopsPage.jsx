@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { Seo } from "@/components/Seo";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { EVENTS } from "@/data/content";
 import { V2_PILLARS } from "@/data/v2";
 
 const WorkshopsPage = () => (
   <main className="bg-[#FBF6EB]" data-testid="workshops-page">
+    <Seo
+      title="Workshops & Events | Mogul Maker Academy"
+      description="Facilitated workshops and educational experiences — guided exercises, real business scenarios, and practical assignments. Verified schedules and registration only."
+    />
     <section className="bg-[#142635] text-[#FBF6EB] px-6 lg:px-12 py-20 lg:py-28 border-b border-[#115754]/40 mma-grain">
       <div className="max-w-7xl mx-auto max-w-4xl">
+        <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "Workshops & Events" }]} />
         <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#C29949] mb-3">
-          Workshops
+          Workshops & Events
         </div>
         <h1 className="font-display text-[clamp(32px,4.5vw,60px)] font-bold text-white tracking-[-0.02em] leading-tight mb-6">
           Where Skills Get Built, Not Just Discussed

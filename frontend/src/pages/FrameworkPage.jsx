@@ -1,136 +1,203 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import { PillarCard } from "@/components/PillarCard";
-import { CourseCard } from "@/components/CourseCard";
+import { ArrowRight, Hammer, Gauge, Layers, Users, Workflow, Landmark } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { PILLARS, COURSES, METHODS } from "@/data/content";
+import { Seo } from "@/components/Seo";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { track } from "@/utils/track";
+import { V2_PILLARS } from "@/data/v2";
 
-const FrameworkPage = () => (
-  <main className="bg-[#F7F4EE]" data-testid="framework-page">
-    <section className="bg-[#101B2B] text-[#F7F4EE] px-6 lg:px-12 py-20 lg:py-28 border-b border-[#202832] mma-grain">
-      <div className="max-w-7xl mx-auto max-w-4xl">
-        <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#C6A66B] mb-3">
-          Teaching Philosophy
-        </div>
-        <h1 className="font-display text-[clamp(32px,4.5vw,60px)] font-medium text-white tracking-[-0.02em] leading-tight mb-6">
-          The 3M Framework™ — MAKE · MANAGE · MULTIPLY
-        </h1>
-        <p className="text-sm md:text-base text-[#F7F4EE]/75 max-w-3xl font-light leading-relaxed mb-6">
-          The 3M Framework is Mogul Maker Academy's proprietary teaching philosophy. It structures
-          entrepreneurial education into three interdependent capabilities — creating economic
-          value, building financial and operating discipline, and expanding ownership and
-          enterprise value.
-        </p>
-        <div className="p-5 bg-[#202832] border-l-2 border-[#C6A66B] rounded-sm max-w-3xl">
-          <p className="text-xs text-[#F7F4EE]/80 leading-relaxed">
-            <span className="font-semibold text-[#C6A66B] uppercase tracking-wider text-[10px] block mb-1">
-              An important distinction
-            </span>
-            The 3M Framework represents how we teach. Standard, Premium, and VIP represent levels
-            of educational depth and member access. The entrepreneurial avatars represent the
-            people we serve. These systems complement one another — they are never interchangeable.
+const PILLAR_ICONS = { make: Hammer, manage: Gauge, multiply: Layers };
+
+const STAGE_COPY = {
+  make: {
+    paragraphs: [
+      "Every enterprise begins by creating something a market genuinely values. MAKE is the discipline of understanding customers, shaping valuable offers, developing sales, and establishing the foundation of a viable business.",
+      "This stage is where ideas become economic activity — validated, priced, and sold to real customers.",
+    ],
+  },
+  manage: {
+    paragraphs: [
+      "Revenue without discipline disappears. MANAGE builds the operational capability that turns activity into a durable business — capable Teams, repeatable Systems, and disciplined Capital management.",
+      "This is where the Academy's supporting principle lives: Money Follows Management. A business that cannot run beyond its founder is not yet an asset.",
+    ],
+  },
+  multiply: {
+    paragraphs: [
+      "A well-run business becomes an asset. MULTIPLY develops the judgment to evaluate reinvestment, expansion, assets, acquisitions, and long-term ownership decisions.",
+      "This stage is about decisions, not promises — the Academy teaches evaluation and strategy, and never implies guaranteed returns or outcomes.",
+    ],
+  },
+};
+
+const TSC = [
+  {
+    icon: Users,
+    name: "Teams",
+    text: "People and roles designed so the business can operate beyond any single individual.",
+  },
+  {
+    icon: Workflow,
+    name: "Systems",
+    text: "Repeatable processes and rhythms that make quality and accountability consistent.",
+  },
+  {
+    icon: Landmark,
+    name: "Capital",
+    text: "Disciplined financial management — cash flow, records, and responsible preparation for capital decisions.",
+  },
+];
+
+const FrameworkPage = () => {
+  const [active, setActive] = useState("make");
+  const pillars = Object.values(V2_PILLARS);
+  const current = V2_PILLARS[active];
+  const copy = STAGE_COPY[active];
+  const Icon = PILLAR_ICONS[active];
+
+  return (
+    <main className="bg-[#FBF6EB]" data-testid="framework-page">
+      <Seo
+        title="The 3M Framework — MAKE · MANAGE · MULTIPLY | Mogul Maker Academy"
+        description="Three stages, one philosophy of ownership. Create value, build capability through Teams, Systems and Capital, and develop lasting ownership value. Money Follows Management."
+      />
+      <section className="bg-[#142635] text-[#FBF6EB] px-6 lg:px-12 py-20 lg:py-24 border-b border-[#115754]/40 mma-grain">
+        <div className="max-w-7xl mx-auto">
+          <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "3M Framework" }]} />
+          <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#C29949] mb-3">
+            The 3M Framework
+          </div>
+          <h1 className="font-display text-[clamp(32px,4.5vw,60px)] font-bold text-white tracking-[-0.02em] leading-tight mb-4">
+            MAKE. MANAGE. MULTIPLY.
+          </h1>
+          <p className="text-base md:text-lg text-[#FBF6EB]/75 max-w-2xl font-light leading-relaxed">
+            Three stages. One philosophy of ownership.
           </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="px-6 lg:px-12 py-20 lg:py-28">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {Object.values(PILLARS).map((p, i) => (
-            <Reveal key={p.id}>
-              <PillarCard pillar={p} index={i} linkTo={`/framework/${p.id}`} />
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal className="mt-20">
-          <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#80551E] mb-3">
-            The Operating Continuum
-          </div>
-          <h2 className="font-display text-[clamp(24px,3vw,40px)] font-medium text-[#101B2B] tracking-tight mb-8 max-w-2xl">
-            Not Three Destinations — One Continuum of Ownership Capability
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {Object.values(PILLARS).map((p, i) => (
-              <div key={p.id} className="relative pl-6" data-testid={`continuum-${p.id}`}>
-                <span
-                  className="absolute left-0 top-1 bottom-1 w-[2px]"
-                  style={{ backgroundColor: p.color }}
-                />
-                <div
-                  className="text-[10px] font-mono uppercase tracking-widest mb-1"
-                  style={{ color: p.color }}
+      {/* Interactive stage explorer */}
+      <section className="px-6 lg:px-12 py-16 lg:py-20 border-b border-[#142635]/10">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-3 gap-2 md:gap-4 mb-10" role="tablist" aria-label="3M stages">
+            {pillars.map((p, i) => (
+              <div key={p.id} className="flex items-center gap-2 md:gap-4">
+                <button
+                  role="tab"
+                  aria-selected={active === p.id}
+                  onClick={() => {
+                    setActive(p.id);
+                    track("3m_stage_selected", { stage: p.id });
+                  }}
+                  data-testid={`3m-tab-${p.id}`}
+                  className={`flex-1 py-4 px-3 md:px-6 text-left rounded-sm border transition-all duration-300 ${
+                    active === p.id
+                      ? "border-[#115754] bg-[#142635] text-[#FBF6EB]"
+                      : "border-[#142635]/15 bg-white text-[#142635] hover:border-[#115754]/50"
+                  }`}
                 >
-                  Stage {i + 1}
-                </div>
-                <div className="font-display text-lg font-medium text-[#101B2B] mb-2">
-                  {p.name} — {p.tagline}
-                </div>
-                <p className="text-xs text-[#5F6773] leading-relaxed">
-                  {i === 0 &&
-                    "Every enterprise begins by creating something a market values. MAKE builds the capability to validate, price, sell, and generate revenue."}
-                  {i === 1 &&
-                    "Revenue without discipline disappears. MANAGE builds the financial management, systems, and leadership that turn activity into a durable operation. Money Follows Management."}
-                  {i === 2 &&
-                    "A well-run business becomes an asset. MULTIPLY builds the capability to grow, value, acquire, and compound ownership over time."}
-                </p>
+                  <span
+                    className="block text-[10px] md:text-xs font-mono uppercase tracking-[0.18em] mb-1"
+                    style={{ color: active === p.id ? p.onDark : p.color }}
+                  >
+                    Stage {i + 1}
+                  </span>
+                  <span className={`block font-display text-base md:text-xl font-bold ${active === p.id ? "text-white" : ""}`}>
+                    {p.name}
+                  </span>
+                </button>
+                {i < 2 && (
+                  <svg width="22" height="10" viewBox="0 0 22 10" className="hidden md:block flex-shrink-0" aria-hidden="true">
+                    <line x1="0" y1="5" x2="17" y2="5" stroke="#C29949" strokeWidth="1.5" className="mma-3m-connector" />
+                    <path d="M16 1.5L21 5l-5 3.5" fill="none" stroke="#C29949" strokeWidth="1.5" />
+                  </svg>
+                )}
               </div>
             ))}
           </div>
-        </Reveal>
 
-        <Reveal className="mt-20">
-          <div className="flex items-end justify-between mb-10 gap-6 flex-wrap">
-            <div>
-              <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#80551E] mb-2">
-                Framework in the Catalog
-              </div>
-              <h2 className="font-display text-[clamp(24px,3vw,40px)] font-medium text-[#101B2B] tracking-tight">
-                Every Module Carries a 3M Classification
-              </h2>
-            </div>
-            <Link
-              to="/courses"
-              data-testid="framework-catalog-link"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] font-semibold text-[#101B2B] border-b border-[#C6A66B] pb-1 hover:text-[#80551E] transition-colors"
-            >
-              Browse the full catalog <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {Object.values(PILLARS).map((p) => {
-              const sample = COURSES.find((c) => c.pillar === p.id);
-              return <CourseCard key={p.id} course={sample} dark={false} />;
-            })}
-          </div>
-        </Reveal>
-
-        <Reveal className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-          {METHODS.map((m) => {
-            const pillar = PILLARS[m.pillar];
-            return (
-              <div
-                key={m.name}
-                className="bg-white border border-[#5F6773]/20 shadow-sm p-6 rounded-sm border-t-4"
-                style={{ borderTopColor: pillar.color }}
-                data-testid={`framework-method-${m.name.toLowerCase()}`}
-              >
-                <div className="font-display text-lg font-medium text-[#101B2B] mb-1">{m.name}</div>
+          <Reveal key={active}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-white border border-[#142635]/12 rounded-sm p-8 lg:p-14 shadow-sm" data-testid="3m-stage-display">
+              <div className="lg:col-span-2 flex lg:justify-center">
                 <div
-                  className="text-[10px] font-mono uppercase tracking-wider mb-3"
-                  style={{ color: pillar.color }}
+                  className="w-20 h-20 lg:w-28 lg:h-28 rounded-sm flex items-center justify-center border"
+                  style={{ borderColor: current.color, backgroundColor: `${current.color}14` }}
                 >
-                  {pillar.name} Pillar
+                  <Icon className="w-9 h-9 lg:w-12 lg:h-12" style={{ color: current.color }} aria-hidden="true" />
                 </div>
-                <p className="text-xs text-[#5F6773] leading-relaxed">{m.summary}</p>
               </div>
-            );
-          })}
+              <div className="lg:col-span-10">
+                <h2 className="font-display text-[clamp(24px,3vw,40px)] font-bold text-[#142635] tracking-tight mb-5">
+                  {active === "make" && "MAKE — Create Value."}
+                  {active === "manage" && "MANAGE — Build Capability."}
+                  {active === "multiply" && "MULTIPLY — Develop Ownership Value."}
+                </h2>
+                {copy.paragraphs.map((p, i) => (
+                  <p key={i} className="text-base text-[#142635]/70 leading-relaxed mb-4 max-w-3xl">
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Teams, Systems, Capital */}
+      <section className="px-6 lg:px-12 py-16 lg:py-20 border-b border-[#142635]/10">
+        <div className="max-w-7xl mx-auto">
+          <Reveal className="max-w-3xl mb-12">
+            <div className="text-xs uppercase tracking-[0.18em] font-bold text-[#115754] mb-3">
+              Inside MANAGE
+            </div>
+            <h2 className="font-display text-[clamp(24px,3vw,40px)] font-bold text-[#142635] tracking-tight mb-4">
+              Teams. Systems. Capital.
+            </h2>
+            <p className="text-base text-[#142635]/65 leading-relaxed">
+              Operational discipline has three working parts. The Academy develops all three —
+              and the principle that connects them.
+            </p>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {TSC.map((t) => (
+              <Reveal key={t.name}>
+                <div className="bg-white border border-[#142635]/12 rounded-sm p-8 h-full shadow-sm" data-testid={`tsc-${t.name.toLowerCase()}`}>
+                  <t.icon className="w-6 h-6 text-[#C29949] mb-5" aria-hidden="true" />
+                  <h3 className="font-display text-xl font-bold text-[#142635] mb-3">{t.name}</h3>
+                  <p className="text-sm text-[#142635]/65 leading-relaxed">{t.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="p-8 bg-[#142635] rounded-sm text-center" data-testid="mfm-block">
+            <p className="font-display italic text-[clamp(20px,2.6vw,30px)] text-[#FBF6EB] mb-2">
+              "Money Follows Management."
+            </p>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-[#C29949]">
+              The Academy's supporting principle
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="px-6 lg:px-12 py-16 text-center">
+        <Reveal>
+          <p className="text-sm text-[#142635]/60 max-w-xl mx-auto mb-8">
+            The deeper methodology — curricula, guided exercises, and applied frameworks — lives
+            inside the Academy's learning experience.
+          </p>
+          <Link
+            to="/academy"
+            onClick={() => track("cta_clicked", { cta: "apply-the-framework", location: "framework-page" })}
+            data-testid="framework-apply-cta"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#115754] text-[#FBF6EB] text-xs font-bold tracking-[0.12em] uppercase rounded-sm hover:bg-[#17716c] transition-colors"
+          >
+            APPLY THE FRAMEWORK <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </Reveal>
-      </div>
-    </section>
-  </main>
-);
+      </section>
+    </main>
+  );
+};
 
 export default FrameworkPage;

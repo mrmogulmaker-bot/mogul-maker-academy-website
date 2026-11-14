@@ -46,12 +46,13 @@ export const Footer = () => (
           The Platform
         </div>
         <ul className="space-y-2.5">
-          <li><Link to="/start-here" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-start-here">Start Here</Link></li>
-          <li><Link to="/learn" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-learn">Learn — The Academy</Link></li>
-          <li><Link to="/workshops" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-workshops">Workshops</Link></li>
-          <li><Link to="/implementation" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-implementation">Implementation</Link></li>
-          <li><Link to="/resources" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-resources">Resources</Link></li>
+          <li><Link to="/start" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-start-here">Start Here</Link></li>
+          <li><Link to="/framework" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-framework">3M Framework</Link></li>
+          <li><Link to="/academy" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-academy">The Academy</Link></li>
+          <li><Link to="/workshops" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-workshops">Workshops & Events</Link></li>
+          <li><Link to="/resources" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-resources">Free Resources</Link></li>
           <li><Link to="/about" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-about">About MMA</Link></li>
+          <li><Link to="/implementation" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-implementation">Professional Implementation</Link></li>
           <li><Link to="/contact" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-contact">Contact</Link></li>
         </ul>
       </div>
@@ -101,6 +102,9 @@ export const Footer = () => (
       </p>
       <div className="mt-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[11px]">
         <span>Mogul Maker Academy</span>
+        <a href="tel:+14705177009" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-phone-link">
+          +1 (470) 517-7009 (SMS-capable)
+        </a>
         <span>Business ownership education & implementation</span>
       </div>
     </div>

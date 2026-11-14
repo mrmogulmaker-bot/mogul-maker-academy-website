@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { AccordionItem } from "@/components/Accordion";
+import { Seo } from "@/components/Seo";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ContactStrip } from "@/components/ContactBlock";
 import { BRAND, V2_PILLARS, FOUNDER_V2, PATHWAYS } from "@/data/v2";
 
 const PRINCIPLES = [
@@ -23,30 +25,16 @@ const PRINCIPLES = [
   },
 ];
 
-const FAQS = [
-  {
-    q: "Is Mogul Maker Academy a funding or business credit company?",
-    a: "No. MMA is a business ownership education and implementation platform. Capital readiness is taught as a discipline — preparation, records, and banking relationships — never as a promise of financing.",
-  },
-  {
-    q: "What is the relationship between MMA and Mr. Mogul Maker?",
-    a: "Mr. Mogul Maker is an independently positioned founder and personal brand — media, speaking, and thought leadership. MMA is an educational and implementation business that features and appropriately licenses founder content. They are related, but distinct.",
-  },
-  {
-    q: "How do membership, workshops, and implementation differ?",
-    a: "Memberships are educational programs. Workshops are facilitated learning experiences. Implementation services are separately contracted professional engagements with defined deliverables. Each has its own terms, and none is a prerequisite for another.",
-  },
-  {
-    q: "Who is the Academy for?",
-    a: "Aspiring entrepreneurs, established business owners, and future acquirers — anyone serious about building or owning a valuable business and willing to do the work that progress requires.",
-  },
-];
-
 const AboutPage = () => (
   <main className="bg-[#FBF6EB]" data-testid="about-page">
+    <Seo
+      title="About MMA — Mission, Philosophy & Founder | Mogul Maker Academy"
+      description="Our mission: better decisions, real capabilities, measurable progress. Learn about the 3M philosophy, the Academy's educational approach, and founder Antonio Cook — Mr. Mogul Maker."
+    />
     {/* Mission */}
     <section className="bg-[#142635] text-[#FBF6EB] px-6 lg:px-12 py-20 lg:py-28 border-b border-[#115754]/40 mma-grain">
       <div className="max-w-7xl mx-auto max-w-4xl">
+        <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "About MMA" }]} />
         <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#C29949] mb-3">
           About MMA
         </div>
@@ -63,10 +51,14 @@ const AboutPage = () => (
             </p>
           ))}
         </div>
+        <p className="mt-8 text-sm text-[#FBF6EB]/65 leading-relaxed max-w-2xl">
+          Success does not look the same for everyone. Our purpose is to help entrepreneurs
+          develop the capabilities required to pursue ownership on their own terms.
+        </p>
       </div>
     </section>
 
-    {/* 3M Philosophy */}
+    {/* 3M philosophy */}
     <section className="px-6 lg:px-12 py-20 border-b border-[#142635]/10">
       <div className="max-w-7xl mx-auto">
         <Reveal className="max-w-3xl mb-14">
@@ -78,8 +70,8 @@ const AboutPage = () => (
           </h2>
           <p className="text-base text-[#142635]/65 leading-relaxed">
             The Academy's original framework organizes the entire ownership journey. It shapes the
-            curriculum, the workshops, the implementation catalog, and how visitors find their
-            next move.
+            curriculum, the workshops, and how visitors find their next move. Its supporting
+            principle: Money Follows Management.
           </p>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -99,6 +91,15 @@ const AboutPage = () => (
             </Reveal>
           ))}
         </div>
+        <Reveal className="mt-10">
+          <Link
+            to="/framework"
+            data-testid="about-framework-cta"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] font-bold text-[#115754] border-b-2 border-[#C29949] pb-1 hover:text-[#142635] transition-colors"
+          >
+            Discover the framework <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </Reveal>
       </div>
     </section>
 
@@ -107,7 +108,7 @@ const AboutPage = () => (
       <div className="max-w-7xl mx-auto">
         <Reveal className="max-w-3xl mb-14">
           <div className="text-xs uppercase tracking-[0.18em] font-bold text-[#115754] mb-3">
-            Professional Delivery Principles
+            Educational Approach
           </div>
           <h2 className="font-display text-[clamp(24px,3vw,40px)] font-bold text-[#142635] tracking-tight">
             How the Work Gets Done
@@ -143,7 +144,7 @@ const AboutPage = () => (
             return (
               <Reveal key={p.id}>
                 <Link
-                  to={`/start-here#${p.id}`}
+                  to={`/start?path=${p.id}`}
                   className="block bg-white border border-[#142635]/12 rounded-sm p-6 h-full shadow-sm transition-transform duration-300 hover:-translate-y-1"
                   data-testid={`about-pathway-${p.id}`}
                 >
@@ -164,9 +165,9 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Founder relationship */}
+    {/* Founder — editable placeholders, owner-supplied content only */}
     <section className="px-6 lg:px-12 py-20 bg-[#142635] text-[#FBF6EB] border-b border-[#115754]/40 mma-grain">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <Reveal className="lg:col-span-5">
           <div className="relative aspect-[4/5] bg-[#0E1D29] rounded-sm overflow-hidden p-8 flex flex-col justify-between border border-[#115754]/40" data-testid="about-founder-photo-slot">
             <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-[#C29949]">
@@ -176,83 +177,88 @@ const AboutPage = () => (
             <div className="space-y-3">
               <div className="h-[1px] w-12 bg-[#C29949]" />
               <p className="text-xs text-[#FBF6EB]/70 font-light leading-snug max-w-[260px]">
-                Authentic approved photographs publish here when supplied by the founder's office.
-                No fabricated likeness is ever used.
+                Approved photographs publish here when supplied by the founder's office. No
+                fabricated likeness is ever used.
               </p>
             </div>
           </div>
         </Reveal>
         <Reveal className="lg:col-span-7">
           <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#C29949] mb-3">
-            Founder Relationship
+            Founder
           </div>
           <h2 className="font-display text-[clamp(28px,3.5vw,44px)] font-bold text-white tracking-tight mb-2">
-            Mr. Mogul Maker
+            Meet Mr. Mogul Maker.
           </h2>
           <div className="text-[11px] uppercase tracking-[0.14em] text-[#7FD4C8] mb-6">
-            {FOUNDER_V2.independentPositioning}
+            Entrepreneur. Educator. Investor. Business Ownership Strategist.
           </div>
           <p className="text-sm text-[#FBF6EB]/70 leading-relaxed mb-4 max-w-2xl">
-            Mr. Mogul Maker is an independently positioned founder and personal brand, founded by
-            Antonio Cook. It produces business education, thought leadership, speaking
-            engagements, media appearances, commentary, and original intellectual property.
+            Antonio Cook, known as Mr. Mogul Maker, is an independently positioned founder and
+            personal brand — media, speaking, and thought leadership. Mr. Mogul Maker produces
+            business education, commentary, and original intellectual property.
           </p>
           <p className="text-sm text-[#FBF6EB]/70 leading-relaxed mb-8 max-w-2xl border-l-2 border-[#C29949]/50 pl-4">
             {FOUNDER_V2.relationship}
           </p>
-          {FOUNDER_V2.externalUrl ? (
-            <div>
-              <a
-                href={FOUNDER_V2.externalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="about-founder-external-cta"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#115754] text-[#FBF6EB] text-xs font-bold uppercase tracking-[0.12em] rounded-sm hover:bg-[#17716c] transition-colors"
-              >
-                {FOUNDER_V2.cta} <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
-              <p className="mt-2 text-[10px] text-[#FBF6EB]/40">
-                {FOUNDER_V2.externalNote}
-              </p>
-            </div>
-          ) : (
-            <span
-              className="inline-flex items-center gap-2 px-6 py-3 border border-[#FBF6EB]/25 text-[#FBF6EB]/60 text-xs font-bold uppercase tracking-[0.12em] rounded-sm cursor-default"
-              data-testid="about-founder-external-cta-pending"
+
+          {/* Editable placeholders for owner-supplied founder content */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8" data-testid="founder-content-placeholders">
+            {[
+              { label: "First-Person Testimony", note: "The founder's own story, in his words — supplied by the owner." },
+              { label: "Entrepreneurial Journey", note: "Approved biography and business history — supplied by the owner." },
+              { label: "Verified Accomplishments", note: "Credentials and achievements published only when verified." },
+              { label: "Media, Speaking & Publications", note: "Appearances and original works linked when authorized." },
+            ].map((slot) => (
+              <div key={slot.label} className="border border-dashed border-[#FBF6EB]/20 rounded-sm p-5" data-testid={`founder-slot-${slot.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                <div className="text-[10px] uppercase tracking-[0.16em] font-bold text-[#C29949] mb-2">
+                  {slot.label} — Placeholder
+                </div>
+                <p className="text-[11px] text-[#FBF6EB]/50 leading-relaxed">{slot.note}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center gap-5">
+            <a
+              href={FOUNDER_V2.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="about-founder-external-cta"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#115754] text-[#FBF6EB] text-xs font-bold uppercase tracking-[0.12em] rounded-sm hover:bg-[#17716c] transition-colors"
             >
-              {FOUNDER_V2.cta} — link pending verified destination
-            </span>
-          )}
+              {FOUNDER_V2.cta} <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+            <span className="text-[10px] text-[#FBF6EB]/40">{FOUNDER_V2.externalNote}</span>
+          </div>
         </Reveal>
       </div>
     </section>
 
-    {/* FAQ + Contact */}
+    {/* Contact + CTA */}
     <section className="px-6 lg:px-12 py-20">
-      <div className="max-w-4xl mx-auto">
-        <Reveal className="mb-10">
-          <div className="text-xs uppercase tracking-[0.18em] font-bold text-[#115754] mb-2">
-            Straight Answers
-          </div>
-          <h2 className="font-display text-[clamp(24px,3vw,40px)] font-bold text-[#142635] tracking-tight">
-            What MMA Is — and Isn't
+      <div className="max-w-4xl mx-auto text-center">
+        <Reveal>
+          <h2 className="font-display text-[clamp(24px,3vw,40px)] font-bold text-[#142635] tracking-tight mb-6">
+            Ready to Find Your Path?
           </h2>
-        </Reveal>
-        <div className="space-y-3">
-          {FAQS.map((f, i) => (
-            <AccordionItem key={i} question={f.q} testId={`about-faq-${i}`}>
-              {f.a}
-            </AccordionItem>
-          ))}
-        </div>
-        <Reveal className="mt-12 text-center">
-          <Link
-            to="/contact"
-            data-testid="about-contact-cta"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#115754] text-[#FBF6EB] text-xs font-bold tracking-[0.12em] uppercase rounded-sm hover:bg-[#17716c] transition-colors"
-          >
-            Contact the Academy <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
+            <Link
+              to="/start"
+              data-testid="about-start-cta"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#115754] text-[#FBF6EB] text-xs font-bold tracking-[0.12em] uppercase rounded-sm hover:bg-[#17716c] transition-colors"
+            >
+              FIND YOUR MOGUL PATH <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+            <Link
+              to="/contact"
+              data-testid="about-contact-cta"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-[#142635]/25 text-[#142635] text-xs font-bold tracking-[0.12em] uppercase rounded-sm hover:border-[#115754] hover:text-[#115754] transition-colors"
+            >
+              Contact the Academy
+            </Link>
+          </div>
+          <ContactStrip dark={false} />
         </Reveal>
       </div>
     </section>
