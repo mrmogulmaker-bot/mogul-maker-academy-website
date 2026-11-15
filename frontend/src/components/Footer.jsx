@@ -102,7 +102,7 @@ export const Footer = () => (
         their own terms.
       </p>
       <div className="mt-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-[11px]">
-        <span>Mogul Maker Academy</span>
+        <span>Mogul Maker Academy — Atlanta, Georgia</span>
         <a href="tel:+14705177009" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-phone-link">
           +1 (470) 517-7009 (SMS-capable)
         </a>

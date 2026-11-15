@@ -52,6 +52,9 @@ Integrate the proprietary **3M Framework — MAKE, MANAGE, MULTIPLY** into the e
 - Phase 2: course detail page (/courses/vip-7), journal index + MULTIPLY filter (2 articles), article page, schedule page screenshotted at 1920px — all render correctly
 - NOT verified: true mobile (390px) rendering — screenshot tool forced 1920 width; RSVP form only exercised via API (no scheduled events exist yet to render it in UI)
 
+## Leadership Update (2026-11-15)
+- Co-founder added: Tashia Anderson (Co-Founder, Atlanta, Georgia) on About page with honest bio/portrait placeholder slots; HQ stated as Atlanta, Georgia in structured data + llms.txt. Owner to supply approved co-founder bio/photo. LEADERSHIP block lives in /app/frontend/src/data/v2.js.
+
 ## v3.1 Production-Readiness Fixes (2026-11-15)
 - Footer pillar links (MAKE/MANAGE/MULTIPLY) now route to /framework?stage=<id>; FrameworkPage reads ?stage to preselect the tab (verified: ?stage=multiply aria-selected=true)
 - Member Login (nav + footer) → https://www.skool.com/login (existing-member flow); Join the Community (footer, separate CTA) → public Skool /about page

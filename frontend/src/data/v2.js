@@ -269,6 +269,18 @@ export const PROOF_MODULES = [
   { id: "testimonials", label: "Permissioned Testimonials", status: "pending", note: "Published only with explicit written permission." },
 ];
 
+export const LEADERSHIP = {
+  headquarters: "Atlanta, Georgia",
+  cofounder: {
+    name: "Tashia Anderson",
+    role: "Co-Founder",
+    location: "Atlanta, Georgia",
+    // Approved biography, portrait, and credentials are supplied by the owner.
+    bio: null,
+    photoUrl: null,
+  },
+};
+
 export const FOUNDER_V2 = {
   name: "Antonio Cook",
   knownAs: "Mr. Mogul Maker",
