@@ -203,7 +203,7 @@ const AboutPage = () => (
                 Founder
               </div>
               <h3 className="font-display text-[clamp(24px,3vw,36px)] font-bold text-white tracking-tight mb-2">
-                Meet Mr. Mogul Maker.
+                Mr. Mogul Maker
               </h3>
               <div className="text-[11px] uppercase tracking-[0.14em] text-[#7FD4C8] mb-5">
                 Entrepreneur. Educator. Investor. Business Ownership Strategist.
