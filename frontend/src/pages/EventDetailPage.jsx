@@ -140,6 +140,11 @@ const EventDetailPage = () => {
                       eventTitle={event.title}
                       sessionLabel={sessions[0] ? formatSession(sessions[0].date) : null}
                     />
+                    <p className="text-[10px] text-[#FBF6EB]/45 leading-relaxed" data-testid="rsvp-interest-note">
+                      This registers your interest and reserves a request for a seat. Attendance is
+                      confirmed directly by the Academy — a submission here is not a confirmed
+                      event registration.
+                    </p>
                   </div>
                 ) : (
                   <div data-testid="event-dates-pending">

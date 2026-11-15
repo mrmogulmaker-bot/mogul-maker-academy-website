@@ -288,7 +288,10 @@ export const FOUNDER_V2 = {
 
 // Verified destinations (checked 2026-11-14). Add only confirmed, owner-approved URLs here.
 export const DESTINATIONS = {
+  // Public Skool landing — enrollment ("Join the Community")
   skoolCommunity: "https://www.skool.com/mogul-maker-group-8193/about",
+  // Existing-member access flow
+  skoolMemberLogin: "https://www.skool.com/login",
   founderYouTube: "https://www.youtube.com/@mrmogulmaker",
   instagram: "https://www.instagram.com/mrmogulmaker",
   youtube: "https://www.youtube.com/@mrmogulmaker",

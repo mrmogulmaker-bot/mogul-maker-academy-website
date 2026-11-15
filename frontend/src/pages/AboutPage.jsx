@@ -229,7 +229,10 @@ const AboutPage = () => (
             >
               {FOUNDER_V2.cta} <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
-            <span className="text-[10px] text-[#FBF6EB]/40">{FOUNDER_V2.externalNote}</span>
+            <span className="text-[10px] text-[#FBF6EB]/40 max-w-xs">
+              {FOUNDER_V2.externalNote} This links to the founder's YouTube channel — not the
+              independent mrmogulmaker.com website, which returns when its hosting is restored.
+            </span>
           </div>
         </Reveal>
       </div>

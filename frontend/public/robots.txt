@@ -21,4 +21,5 @@ User-agent: CCBot
 Allow: /
 Disallow: /api/
 
-# Sitemap line added once the confirmed production domain is live.
+# Sitemap activates at production go-live (domain currently down):
+# Sitemap: https://mogulmakeracademy.com/sitemap.xml

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sitemap placeholder. Activate at production go-live by replacing
+     https://mogulmakeracademy.com with the confirmed production domain
+     (currently down — Cloudflare 522 — so no absolute URLs are published yet). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mogulmakeracademy.com/</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/start</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/framework</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/academy</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/workshops</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/resources</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/about</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/implementation</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/contact</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/privacy</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/terms</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://mogulmakeracademy.com/accessibility</loc><lastmod>2026-11-14</lastmod></url>
+</urlset>

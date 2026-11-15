@@ -12,15 +12,15 @@ const STAGES = [
 ];
 
 export const EnquiryForm = ({ dark = true }) => {
-  const [form, setForm] = useState({ name: "", email: "", stage: STAGES[0], interest: "courses", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", stage: STAGES[0], interest: "courses", message: "", website: "" });
   const [submitting, setSubmitting] = useState(false);
 
   const labelCls = dark
-    ? "block text-[11px] uppercase tracking-wider text-[#F7F4EE]/80 mb-1.5 font-medium"
-    : "block text-[11px] uppercase tracking-wider text-[#202832]/80 mb-1.5 font-medium";
+    ? "block text-[11px] uppercase tracking-wider text-[#FBF6EB]/80 mb-1.5 font-medium"
+    : "block text-[11px] uppercase tracking-wider text-[#142635]/80 mb-1.5 font-medium";
   const inputCls = dark
-    ? "w-full bg-[#101B2B] border border-[#5F6773]/50 px-3.5 py-2.5 text-xs text-white placeholder-[#5F6773] focus:outline-none focus:border-[#C6A66B] rounded-sm transition-colors"
-    : "w-full bg-white border border-[#5F6773]/40 px-3.5 py-2.5 text-xs text-[#202832] placeholder-[#5F6773] focus:outline-none focus:border-[#C6A66B] rounded-sm transition-colors";
+    ? "w-full bg-[#0E1D29] border border-[#FBF6EB]/20 px-3.5 py-2.5 text-xs text-white placeholder-[#9FB8C8]/60 focus:outline-none focus:border-[#C29949] rounded-sm transition-colors"
+    : "w-full bg-white border border-[#142635]/25 px-3.5 py-2.5 text-xs text-[#142635] placeholder-[#142635]/40 focus:outline-none focus:border-[#115754] rounded-sm transition-colors";
 
   const submit = async (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ export const EnquiryForm = ({ dark = true }) => {
         description:
           "Thank you. The Academy will review your operating stage and follow up with pathway guidance.",
       });
-      setForm({ name: "", email: "", stage: STAGES[0], interest: "courses", message: "" });
+      setForm({ name: "", email: "", stage: STAGES[0], interest: "courses", message: "", website: "" });
     } catch (err) {
       toast.error("Could not submit your enquiry", {
         description: "Please check your details and try again.",
@@ -119,18 +119,31 @@ export const EnquiryForm = ({ dark = true }) => {
         />
       </div>
 
+      {/* Honeypot — bots only; humans never see or fill this field */}
+      <input
+        type="text"
+        name="website"
+        value={form.website}
+        onChange={(e) => setForm({ ...form, website: e.target.value })}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, width: 0 }}
+      />
       <button
         type="submit"
         disabled={submitting}
         data-testid="enquiry-submit-button"
-        className="w-full mt-2 py-3.5 bg-[#C6A66B] text-[#101B2B] text-xs font-bold uppercase tracking-[0.14em] hover:bg-[#d8bb83] transition-colors rounded-sm disabled:opacity-60"
+        className="w-full mt-2 py-3.5 bg-[#C29949] text-[#142635] text-xs font-bold uppercase tracking-[0.14em] hover:bg-[#d0a857] transition-colors rounded-sm disabled:opacity-60"
       >
         {submitting ? "Submitting…" : "Request Pathway Consultation"}
       </button>
 
-      <p className={`text-[10px] leading-relaxed ${dark ? "text-[#5F6773]" : "text-[#5F6773]"}`}>
-        Mogul Maker Academy provides entrepreneurial and financial education. We do not promise or
-        imply guaranteed wealth, investment returns, or funding outcomes.
+      <p className={`text-[10px] leading-relaxed ${dark ? "text-[#FBF6EB]/45" : "text-[#142635]/50"}`}>
+        By submitting, you consent to the Academy contacting you about your enquiry. Your details
+        are used only to respond and are never sold. Mogul Maker Academy provides entrepreneurial
+        and financial education. We do not promise or imply guaranteed wealth, investment returns,
+        or funding outcomes.
       </p>
     </form>
   );

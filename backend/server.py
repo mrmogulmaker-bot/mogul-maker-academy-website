@@ -66,6 +66,7 @@ class Enquiry(BaseModel):
     stage: Annotated[str, Field(min_length=1, max_length=200)]
     interest: str = "courses"
     message: Optional[str] = Field(default=None, max_length=2000)
+    website: Optional[str] = Field(default=None, max_length=200)  # honeypot
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
@@ -78,6 +79,7 @@ class Rsvp(BaseModel):
     event_id: Annotated[str, Field(min_length=1, max_length=80)]
     event_title: Annotated[str, Field(min_length=1, max_length=200)]
     session_label: Optional[str] = Field(default=None, max_length=200)
+    website: Optional[str] = Field(default=None, max_length=200)  # honeypot
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
@@ -101,7 +103,9 @@ async def root():
 
 @api_router.post("/enquiries", response_model=Enquiry, status_code=201)
 async def create_enquiry(input: Enquiry):
-    doc = input.model_dump()
+    if input.website:  # honeypot filled — bot; accept silently, store nothing
+        return input
+    doc = input.model_dump(exclude={"website"})
     doc["created_at"] = doc["created_at"].isoformat()
     await db.enquiries.insert_one(doc)
     return input
@@ -119,7 +123,9 @@ async def list_enquiries(limit: int = Query(50, ge=1, le=200)):
 
 @api_router.post("/rsvps", response_model=Rsvp, status_code=201)
 async def create_rsvp(input: Rsvp):
-    doc = input.model_dump()
+    if input.website:  # honeypot filled — bot; accept silently, store nothing
+        return input
+    doc = input.model_dump(exclude={"website"})
     doc["created_at"] = doc["created_at"].isoformat()
     await db.rsvps.insert_one(doc)
     return input

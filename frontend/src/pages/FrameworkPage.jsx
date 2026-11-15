@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { ArrowRight, Hammer, Gauge, Layers, Users, Workflow, Landmark } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { Seo } from "@/components/Seo";
@@ -49,7 +49,9 @@ const TSC = [
 ];
 
 const FrameworkPage = () => {
-  const [active, setActive] = useState("make");
+  const [searchParams] = useSearchParams();
+  const initialStage = V2_PILLARS[searchParams.get("stage")] ? searchParams.get("stage") : "make";
+  const [active, setActive] = useState(initialStage);
   const pillars = Object.values(V2_PILLARS);
   const current = V2_PILLARS[active];
   const copy = STAGE_COPY[active];

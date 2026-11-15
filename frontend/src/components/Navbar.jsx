@@ -70,7 +70,7 @@ export const Navbar = () => {
 
         <div className="flex items-center gap-4">
           <a
-            href={DESTINATIONS.skoolCommunity}
+            href={DESTINATIONS.skoolMemberLogin}
             target="_blank"
             rel="noopener noreferrer"
             data-testid="nav-member-login"
@@ -114,7 +114,7 @@ export const Navbar = () => {
             </NavLink>
           ))}
           <a
-            href={DESTINATIONS.skoolCommunity}
+            href={DESTINATIONS.skoolMemberLogin}
             target="_blank"
             rel="noopener noreferrer"
             data-testid="nav-mobile-member-login"
