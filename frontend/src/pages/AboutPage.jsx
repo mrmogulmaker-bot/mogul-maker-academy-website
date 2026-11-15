@@ -165,110 +165,124 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Founder — editable placeholders, owner-supplied content only */}
+    {/* Leadership — Founder & Co-Founder side by side */}
     <section className="px-6 lg:px-12 py-20 bg-[#142635] text-[#FBF6EB] border-b border-[#115754]/40 mma-grain">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        <Reveal className="lg:col-span-5">
-          <div className="relative aspect-[4/5] bg-[#0E1D29] rounded-sm overflow-hidden p-8 flex flex-col justify-between border border-[#115754]/40" data-testid="about-founder-photo-slot">
-            <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-[#C29949]">
-              <span>Founder Portrait</span>
-              <span>Forthcoming</span>
-            </div>
-            <div className="space-y-3">
-              <div className="h-[1px] w-12 bg-[#C29949]" />
-              <p className="text-xs text-[#FBF6EB]/70 font-light leading-snug max-w-[260px]">
-                Approved photographs publish here when supplied by the founder's office. No
-                fabricated likeness is ever used.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-        <Reveal className="lg:col-span-7">
+      <div className="max-w-7xl mx-auto">
+        <Reveal className="max-w-3xl mb-14">
           <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#C29949] mb-3">
-            Founder
+            Leadership
           </div>
-          <h2 className="font-display text-[clamp(28px,3.5vw,44px)] font-bold text-white tracking-tight mb-2">
-            Meet Mr. Mogul Maker.
+          <h2 className="font-display text-[clamp(28px,3.5vw,44px)] font-bold text-white tracking-tight mb-4">
+            The People Behind the Academy
           </h2>
-          <div className="text-[11px] uppercase tracking-[0.14em] text-[#7FD4C8] mb-6">
-            Entrepreneur. Educator. Investor. Business Ownership Strategist.
-          </div>
-          <p className="text-sm text-[#FBF6EB]/70 leading-relaxed mb-4 max-w-2xl">
-            Antonio Cook, known as Mr. Mogul Maker, is an independently positioned founder and
-            personal brand — media, speaking, and thought leadership. Mr. Mogul Maker produces
-            business education, commentary, and original intellectual property.
+          <p className="text-sm text-[#FBF6EB]/65 leading-relaxed">
+            Mogul Maker Academy is headquartered in Atlanta, Georgia. Approved portraits,
+            testimonies, and biographies publish here as they are supplied by the founders' office —
+            nothing is invented.
           </p>
-          <p className="text-sm text-[#FBF6EB]/70 leading-relaxed mb-8 max-w-2xl border-l-2 border-[#C29949]/50 pl-4">
-            {FOUNDER_V2.relationship}
-          </p>
-
-          {/* Editable placeholders for owner-supplied founder content */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8" data-testid="founder-content-placeholders">
-            {[
-              { label: "First-Person Testimony", note: "The founder's own story, in his words — supplied by the owner." },
-              { label: "Entrepreneurial Journey", note: "Approved biography and business history — supplied by the owner." },
-              { label: "Verified Accomplishments", note: "Credentials and achievements published only when verified." },
-              { label: "Media, Speaking & Publications", note: "Appearances and original works linked when authorized." },
-            ].map((slot) => (
-              <div key={slot.label} className="border border-dashed border-[#FBF6EB]/20 rounded-sm p-5" data-testid={`founder-slot-${slot.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
-                <div className="text-[10px] uppercase tracking-[0.16em] font-bold text-[#C29949] mb-2">
-                  {slot.label} — Placeholder
-                </div>
-                <p className="text-[11px] text-[#FBF6EB]/50 leading-relaxed">{slot.note}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap items-center gap-5">
-            <a
-              href={FOUNDER_V2.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-testid="about-founder-external-cta"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#115754] text-[#FBF6EB] text-xs font-bold uppercase tracking-[0.12em] rounded-sm hover:bg-[#17716c] transition-colors"
-            >
-              {FOUNDER_V2.cta} <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-            <span className="text-[10px] text-[#FBF6EB]/40 max-w-xs">
-              {FOUNDER_V2.externalNote} This links to the founder's YouTube channel — not the
-              independent mrmogulmaker.com website, which returns when its hosting is restored.
-            </span>
-          </div>
         </Reveal>
 
-        {/* Co-Founder — approved bio and portrait supplied by the owner */}
-        <Reveal className="lg:col-span-12 mt-4">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center border-t border-[#FBF6EB]/10 pt-14" data-testid="cofounder-section">
-            <div className="md:col-span-4">
-              <div className="relative aspect-[4/5] bg-[#0E1D29] rounded-sm overflow-hidden p-7 flex flex-col justify-between border border-[#115754]/40" data-testid="cofounder-photo-slot">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Founder */}
+          <Reveal>
+            <div className="bg-[#0E1D29] border border-[#115754]/40 rounded-sm p-8 h-full" data-testid="founder-card">
+              <div className="relative aspect-[4/5] bg-[#142635] rounded-sm overflow-hidden p-7 flex flex-col justify-between border border-[#FBF6EB]/10 mb-7" data-testid="about-founder-photo-slot">
+                <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-[#C29949]">
+                  <span>Founder Portrait</span>
+                  <span>Forthcoming</span>
+                </div>
+                <div className="space-y-3">
+                  <div className="h-[1px] w-12 bg-[#C29949]" />
+                  <p className="text-xs text-[#FBF6EB]/70 font-light leading-snug max-w-[260px]">
+                    Approved photographs publish here when supplied by the founder's office. No
+                    fabricated likeness is ever used.
+                  </p>
+                </div>
+              </div>
+              <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#C29949] mb-3">
+                Founder
+              </div>
+              <h3 className="font-display text-[clamp(24px,3vw,36px)] font-bold text-white tracking-tight mb-2">
+                Meet Mr. Mogul Maker.
+              </h3>
+              <div className="text-[11px] uppercase tracking-[0.14em] text-[#7FD4C8] mb-5">
+                Entrepreneur. Educator. Investor. Business Ownership Strategist.
+              </div>
+              <p className="text-sm text-[#FBF6EB]/70 leading-relaxed mb-4">
+                Antonio Cook, known as Mr. Mogul Maker, is an independently positioned founder and
+                personal brand — media, speaking, and thought leadership. Mr. Mogul Maker produces
+                business education, commentary, and original intellectual property.
+              </p>
+              <p className="text-xs text-[#FBF6EB]/60 leading-relaxed mb-7 border-l-2 border-[#C29949]/50 pl-4">
+                {FOUNDER_V2.relationship}
+              </p>
+
+              {/* Editable placeholders for owner-supplied founder content */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-7" data-testid="founder-content-placeholders">
+                {[
+                  { label: "First-Person Testimony", note: "The founder's own story, in his words — supplied by the owner." },
+                  { label: "Entrepreneurial Journey", note: "Approved biography and business history — supplied by the owner." },
+                  { label: "Verified Accomplishments", note: "Credentials and achievements published only when verified." },
+                  { label: "Media, Speaking & Publications", note: "Appearances and original works linked when authorized." },
+                ].map((slot) => (
+                  <div key={slot.label} className="border border-dashed border-[#FBF6EB]/20 rounded-sm p-5" data-testid={`founder-slot-${slot.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                    <div className="text-[10px] uppercase tracking-[0.16em] font-bold text-[#C29949] mb-2">
+                      {slot.label} — Placeholder
+                    </div>
+                    <p className="text-[11px] text-[#FBF6EB]/50 leading-relaxed">{slot.note}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <a
+                  href={FOUNDER_V2.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="about-founder-external-cta"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#115754] text-[#FBF6EB] text-xs font-bold uppercase tracking-[0.12em] rounded-sm hover:bg-[#17716c] transition-colors"
+                >
+                  {FOUNDER_V2.cta} <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+                <span className="text-[10px] text-[#FBF6EB]/40 max-w-[220px]">
+                  {FOUNDER_V2.externalNote} This links to the founder's YouTube channel — not the
+                  independent mrmogulmaker.com website, which returns when its hosting is restored.
+                </span>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Co-Founder */}
+          <Reveal>
+            <div className="bg-[#0E1D29] border border-[#115754]/40 rounded-sm p-8 h-full" data-testid="cofounder-section">
+              <div className="relative aspect-[4/5] bg-[#142635] rounded-sm overflow-hidden p-7 flex flex-col justify-between border border-[#FBF6EB]/10 mb-7" data-testid="cofounder-photo-slot">
                 <div className="flex items-center justify-between text-[10px] uppercase tracking-wider text-[#C29949]">
                   <span>Co-Founder Portrait</span>
                   <span>Forthcoming</span>
                 </div>
                 <div className="space-y-3">
                   <div className="h-[1px] w-12 bg-[#C29949]" />
-                  <p className="text-xs text-[#FBF6EB]/70 font-light leading-snug">
-                    Approved photograph publishes here when supplied by the owner's office.
+                  <p className="text-xs text-[#FBF6EB]/70 font-light leading-snug max-w-[260px]">
+                    Approved photograph publishes here when supplied by the owner's office. No
+                    fabricated likeness is ever used.
                   </p>
                 </div>
               </div>
-            </div>
-            <div className="md:col-span-8">
               <div className="text-xs uppercase tracking-[0.18em] font-semibold text-[#C29949] mb-3">
                 Co-Founder
               </div>
               <h3 className="font-display text-[clamp(24px,3vw,36px)] font-bold text-white tracking-tight mb-2">
                 {LEADERSHIP.cofounder.name}
               </h3>
-              <div className="text-[11px] uppercase tracking-[0.14em] text-[#7FD4C8] mb-6">
+              <div className="text-[11px] uppercase tracking-[0.14em] text-[#7FD4C8] mb-5">
                 {LEADERSHIP.cofounder.role} — {LEADERSHIP.cofounder.location}
               </div>
               {LEADERSHIP.cofounder.bio ? (
-                <p className="text-sm text-[#FBF6EB]/70 leading-relaxed max-w-2xl">
+                <p className="text-sm text-[#FBF6EB]/70 leading-relaxed mb-7">
                   {LEADERSHIP.cofounder.bio}
                 </p>
               ) : (
-                <div className="border border-dashed border-[#FBF6EB]/20 rounded-sm p-5 max-w-xl" data-testid="cofounder-bio-slot">
+                <div className="border border-dashed border-[#FBF6EB]/20 rounded-sm p-5 mb-7" data-testid="cofounder-bio-slot">
                   <div className="text-[10px] uppercase tracking-[0.16em] font-bold text-[#C29949] mb-2">
                     Biography — Placeholder
                   </div>
@@ -278,9 +292,22 @@ const AboutPage = () => (
                   </p>
                 </div>
               )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4" data-testid="cofounder-content-placeholders">
+                {[
+                  { label: "Leadership Role", note: "Responsibilities and focus areas — supplied by the owner." },
+                  { label: "Verified Accomplishments", note: "Credentials and achievements published only when verified." },
+                ].map((slot) => (
+                  <div key={slot.label} className="border border-dashed border-[#FBF6EB]/20 rounded-sm p-5" data-testid={`cofounder-slot-${slot.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                    <div className="text-[10px] uppercase tracking-[0.16em] font-bold text-[#C29949] mb-2">
+                      {slot.label} — Placeholder
+                    </div>
+                    <p className="text-[11px] text-[#FBF6EB]/50 leading-relaxed">{slot.note}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
     </section>
 
