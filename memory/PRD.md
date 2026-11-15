@@ -52,6 +52,12 @@ Integrate the proprietary **3M Framework — MAKE, MANAGE, MULTIPLY** into the e
 - Phase 2: course detail page (/courses/vip-7), journal index + MULTIPLY filter (2 articles), article page, schedule page screenshotted at 1920px — all render correctly
 - NOT verified: true mobile (390px) rendering — screenshot tool forced 1920 width; RSVP form only exercised via API (no scheduled events exist yet to render it in UI)
 
+## Membership/CTA Update (2026-11-15)
+- Member Login removed everywhere (nav, footer, contact) — users join via Skool public page only; existing members use Skool's own login
+- Homepage hero now has third CTA: JOIN US ON SKOOL → https://www.skool.com/mogul-maker-group-8193/about
+- Contact page community block updated: "Join the Community" → "Join Us on Skool" link
+- Footer link relabeled "Join Us on Skool"
+
 ## Leadership Update (2026-11-15)
 - Co-founder added: Tashia Anderson (Co-Founder, Atlanta, Georgia) on About page with honest bio/portrait placeholder slots; HQ stated as Atlanta, Georgia in structured data + llms.txt. Owner to supply approved co-founder bio/photo. LEADERSHIP block lives in /app/frontend/src/data/v2.js.
 

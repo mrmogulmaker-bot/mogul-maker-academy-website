@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Reveal } from "@/components/Reveal";
@@ -7,9 +6,6 @@ import { ContactStrip } from "@/components/ContactBlock";
 import { DESTINATIONS } from "@/data/v2";
 
 const ContactPage = () => {
-  const location = useLocation();
-  const fromMemberLogin = location.state?.subject === "member-login";
-
   return (
     <main className="bg-[#FBF6EB]" data-testid="contact-page">
       <section className="bg-[#142635] text-[#FBF6EB] px-6 lg:px-12 py-20 lg:py-24 border-b border-[#115754]/40 mma-grain">
@@ -36,25 +32,24 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-5">
             <div className="space-y-8">
-              {fromMemberLogin && (
-                <div className="p-5 bg-white border-l-2 border-[#115754] rounded-sm shadow-sm" data-testid="member-login-note">
-                  <div className="text-[10px] uppercase tracking-[0.16em] font-bold text-[#115754] mb-1">
-                    Community / Member Login
-                  </div>
-                  <p className="text-xs text-[#142635]/65 leading-relaxed mb-3">
-                    The member community runs on the Academy's verified Skool platform.
-                  </p>
-                  <a
-                    href={DESTINATIONS.skoolCommunity}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid="member-login-destination"
-                    className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-bold text-[#115754] border-b-2 border-[#C29949] pb-1 hover:text-[#142635] transition-colors"
-                  >
-                    Open the member community <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
+              <div className="p-5 bg-white border-l-2 border-[#115754] rounded-sm shadow-sm" data-testid="community-note">
+                <div className="text-[10px] uppercase tracking-[0.16em] font-bold text-[#115754] mb-1">
+                  The Community
                 </div>
-              )}
+                <p className="text-xs text-[#142635]/65 leading-relaxed mb-3">
+                  The Academy's member community runs on the verified Skool platform — education,
+                  workshops, and member experiences live there.
+                </p>
+                <a
+                  href={DESTINATIONS.skoolCommunity}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="community-join-link"
+                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-bold text-[#115754] border-b-2 border-[#C29949] pb-1 hover:text-[#142635] transition-colors"
+                >
+                  Join Us on Skool <ArrowUpRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
               <div>
                 <h2 className="font-display text-xl font-semibold text-[#142635] mb-2">
                   What happens next

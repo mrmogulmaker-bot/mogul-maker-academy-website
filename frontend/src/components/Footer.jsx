@@ -62,8 +62,7 @@ export const Footer = () => (
           Community & Legal
         </div>
         <ul className="space-y-2.5">
-          <li><a href={DESTINATIONS.skoolMemberLogin} target="_blank" rel="noopener noreferrer" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-member-login">Member Login</a></li>
-          <li><a href={DESTINATIONS.skoolCommunity} target="_blank" rel="noopener noreferrer" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-join-community">Join the Community</a></li>
+          <li><a href={DESTINATIONS.skoolCommunity} target="_blank" rel="noopener noreferrer" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-join-community">Join Us on Skool</a></li>
           <li><Link to="/privacy" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-privacy">Privacy Policy</Link></li>
           <li><Link to="/terms" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-terms">Terms of Use</Link></li>
           <li><Link to="/accessibility" className="hover:text-[#FBF6EB] transition-colors" data-testid="footer-link-accessibility">Accessibility</Link></li>

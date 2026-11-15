@@ -4,7 +4,7 @@ import { ArrowRight, ArrowUpRight, BookOpen, Users, Wrench, Hammer, Gauge, Layer
 import { Reveal } from "@/components/Reveal";
 import { Seo } from "@/components/Seo";
 import { track } from "@/utils/track";
-import { BRAND, V2_PILLARS, PATHWAYS, FOUNDER_V2 } from "@/data/v2";
+import { BRAND, V2_PILLARS, PATHWAYS, FOUNDER_V2, DESTINATIONS } from "@/data/v2";
 import { HERO_ACTS } from "@/data/content";
 
 const ACT_DURATION = 4600;
@@ -115,6 +115,16 @@ const Hero = () => {
             >
               EXPLORE THE ACADEMY
             </Link>
+            <a
+              href={DESTINATIONS.skoolCommunity}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track("cta_clicked", { cta: "join-us-on-skool", location: "hero" })}
+              data-testid="hero-cta-skool"
+              className="px-7 py-3.5 text-[#C29949] text-xs font-bold tracking-[0.12em] uppercase rounded-sm border-b-2 border-[#C29949]/60 hover:border-[#C29949] transition-colors inline-flex items-center gap-2"
+            >
+              JOIN US ON SKOOL <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       </div>

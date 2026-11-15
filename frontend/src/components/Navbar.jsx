@@ -69,15 +69,7 @@ export const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <a
-            href={DESTINATIONS.skoolMemberLogin}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="nav-member-login"
-            className="hidden md:inline text-[11px] tracking-wider uppercase text-[#FBF6EB]/70 hover:text-[#C29949] transition-colors whitespace-nowrap"
-          >
-            Member Login
-          </a>
+
           <button
             onClick={goMogulPath}
             data-testid="nav-cta-mogul-path"
@@ -113,15 +105,7 @@ export const Navbar = () => {
               {l.label}
             </NavLink>
           ))}
-          <a
-            href={DESTINATIONS.skoolMemberLogin}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="nav-mobile-member-login"
-            className="text-[#FBF6EB]/70 hover:text-[#C29949] transition-colors"
-          >
-            Member Login
-          </a>
+
           <button
             onClick={() => {
               setOpen(false);
