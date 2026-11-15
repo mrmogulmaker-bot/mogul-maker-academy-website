@@ -321,11 +321,11 @@ const Experience = () => (
   </section>
 );
 
-/* ---------- 05 MISSION & FOUNDER ---------- */
-const MissionFounder = () => (
-  <section className="py-24 lg:py-32 bg-[#115754] text-[#FBF6EB] px-6 lg:px-12 mma-grain" data-testid="mission-founder-section">
-    <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-14">
-      <Reveal className="lg:col-span-7">
+/* ---------- 05 MISSION ---------- */
+const Mission = () => (
+  <section className="py-24 lg:py-32 bg-[#115754] text-[#FBF6EB] px-6 lg:px-12 mma-grain" data-testid="mission-section">
+    <div className="max-w-5xl mx-auto">
+      <Reveal>
         <div className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C29949] mb-6">
           The MMA Mission
         </div>
@@ -339,44 +339,18 @@ const MissionFounder = () => (
             </p>
           ))}
         </div>
-        <p className="text-sm text-[#FBF6EB]/70 leading-relaxed max-w-xl font-light">
+        <p className="text-sm text-[#FBF6EB]/70 leading-relaxed max-w-xl font-light mb-8">
           We believe business education should change more than what people know. It should
           influence how they evaluate opportunities, solve problems, manage resources, and take
           meaningful action.
         </p>
-      </Reveal>
-
-      <Reveal className="lg:col-span-5">
-        <div className="bg-[#142635] border border-[#FBF6EB]/10 rounded-sm p-8 lg:p-10" data-testid="founder-intro-card">
-          <div className="text-[10px] uppercase tracking-[0.18em] font-semibold text-[#C29949] mb-4">
-            Meet the Founder
-          </div>
-          <h3 className="font-display text-2xl font-bold text-white mb-1">MEET MR. MOGUL MAKER.</h3>
-          <div className="text-[11px] uppercase tracking-[0.14em] text-[#7FD4C8] mb-5">
-            Entrepreneur. Educator. Investor. Business Ownership Strategist.
-          </div>
-          {/* Editable founder placeholders — approved testimony, portrait, and credentials
-              are supplied by the owner. Nothing here is invented. */}
-          <div className="aspect-[4/3] bg-[#0E1D29] rounded-sm mb-5 p-5 flex flex-col justify-between border border-[#FBF6EB]/10" data-testid="founder-placeholder-media">
-            <span className="text-[9px] uppercase tracking-wider text-[#C29949]">Founder portrait — forthcoming</span>
-            <span className="text-[11px] text-[#FBF6EB]/50 leading-snug">
-              Approved first-person testimony and photographs publish here when supplied by the
-              founder's office.
-            </span>
-          </div>
-          <p className="text-xs text-[#FBF6EB]/65 leading-relaxed mb-6">
-            Antonio Cook, known as Mr. Mogul Maker, is an independently positioned founder —
-            media, speaking, and thought leadership — whose philosophy connects earning power,
-            operations, capital, and the decisions required to build valuable enterprises.
-          </p>
-          <Link
-            to="/about"
-            data-testid="mission-founder-cta"
-            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-bold text-[#C29949] border-b-2 border-[#C29949]/50 pb-1 hover:text-white transition-colors"
-          >
-            OUR STORY <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
+        <Link
+          to="/about"
+          data-testid="mission-about-cta"
+          className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] font-bold text-[#C29949] border-b-2 border-[#C29949]/50 pb-1 hover:text-white transition-colors"
+        >
+          OUR STORY <ArrowRight className="w-3.5 h-3.5" />
+        </Link>
       </Reveal>
     </div>
   </section>
@@ -426,7 +400,7 @@ const HomePage = () => (
     <Journey />
     <FrameworkPreview />
     <Experience />
-    <MissionFounder />
+    <Mission />
     <FinalInvitation />
   </main>
 );
