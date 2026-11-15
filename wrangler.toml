@@ -1,0 +1,13 @@
+# Cloudflare Pages project config — Mogul Maker Academy
+# Reference only; Pages projects are primarily configured in the dashboard.
+name = "mogul-maker-academy"
+pages_build_output_dir = "frontend/build"
+
+# KV namespace for enquiry/RSVP storage — create with:
+#   npx wrangler kv namespace create MMA_DATA
+# then bind it in Pages → Settings → Functions → KV namespace bindings (MMA_DATA).
+
+# Environment variables to set in Pages → Settings → Environment variables:
+#   REACT_APP_BACKEND_URL = ""        (empty — same-origin /api calls via Functions)
+#   PAIGE_API_URL = <set when PAIGE integration is configured>   (secret, server-side only)
+#   PAIGE_API_KEY = <set when PAIGE integration is configured>   (secret, server-side only)

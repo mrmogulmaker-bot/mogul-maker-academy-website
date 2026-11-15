@@ -52,6 +52,14 @@ Integrate the proprietary **3M Framework — MAKE, MANAGE, MULTIPLY** into the e
 - Phase 2: course detail page (/courses/vip-7), journal index + MULTIPLY filter (2 articles), article page, schedule page screenshotted at 1920px — all render correctly
 - NOT verified: true mobile (390px) rendering — screenshot tool forced 1920 width; RSVP form only exercised via API (no scheduled events exist yet to render it in UI)
 
+## Cloudflare Pages Migration Prep (2026-11-15)
+- Framework: React 19 CRA via CRACO; root=repo root; build cmd `yarn build`; output `frontend/build`; Node 20; Yarn 1.22
+- Added: `frontend/public/_redirects` (SPA fallback), `frontend/public/_headers` (security+cache), `functions/api/enquiries.js`, `functions/api/rsvps.js` (KV `MMA_DATA` replaces MongoDB), `functions/api/paige/[[path]].js` (server-side PAIGE proxy — creds in Pages env, never browser), `wrangler.toml`, `CLOUDFLARE_DEPLOYMENT.md` (exact Pages settings + go-live checklist)
+- Pages env: `REACT_APP_BACKEND_URL` = empty (same-origin /api via Functions), `NODE_VERSION=20`, `CI=false`; KV binding `MMA_DATA`
+- `yarn build` verified → 2.8MB output with all config files copied; all routes client-side; Forms → Functions; backend/ NOT deployed to Pages
+- GitHub export: Emergent platform capability — routed to support_agent (no native push from pod; user can download zip or push via platform UI if available)
+- NOT done (per owner): no DNS changes, no production publish, noindex stays until owner acceptance
+
 ## Membership/CTA Update (2026-11-15)
 - Member Login removed everywhere (nav, footer, contact) — users join via Skool public page only; existing members use Skool's own login
 - Homepage hero now has third CTA: JOIN US ON SKOOL → https://www.skool.com/mogul-maker-group-8193/about
